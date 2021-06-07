@@ -1,0 +1,53 @@
+@import '../../styles/common.scss';
+
+body {
+  height: 100vh;
+  @include flexSet(row, center);
+  background-color: var(--outer_background_color);
+}
+
+main {
+  width: 500px;
+  padding: 20px 20px;
+  background-color: var(--all_background_color);
+
+  section {
+    @include flexSet(column);
+
+    > label {
+      color: var(--register_subject_font_color);
+      font-weight: 700;
+    }
+
+    > div {
+      width: 100%;
+      @include flexSet(column);
+      margin: 10px 0;
+
+      > input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid var(--register_input_border_color);
+        border-radius: 5px;
+
+        &::placeholder {
+          color: var(--register_input_font_color);
+          padding-left: 10px;
+        }
+      }
+
+      > input:nth-child(2) {
+        margin-top: 10px;
+      }
+    }
+  }
+  input[type='submit'] {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 5px;
+    color: var(--register_submit_font_color);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
