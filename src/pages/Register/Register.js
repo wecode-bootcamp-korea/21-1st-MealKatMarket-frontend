@@ -5,7 +5,11 @@ class Register extends React.Component {
   render() {
     return (
       <body>
-        <header></header>
+        <header>
+          <span className="back-arrow">뒤로가기</span>
+          <span className="register-title">회원가입</span>
+          <span className="home-icon">home</span>
+        </header>
         <main>
           <form action="#">
             <section className="email-container">
