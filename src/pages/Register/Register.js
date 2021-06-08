@@ -8,7 +8,9 @@ class Register extends React.Component {
         <header>
           <span className="back-arrow">뒤로가기</span>
           <span className="register-title">회원가입</span>
-          <span className="home-icon">home</span>
+          <span className="home-icon">
+            <img src="/images/home_orange.svg" />
+          </span>
         </header>
         <main>
           <form action="#">

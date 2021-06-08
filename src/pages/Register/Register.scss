@@ -1,35 +1,35 @@
-@import '../../styles/common.scss';
+@import '../../styles/variables.scss';
 
 .register-container {
   height: 100vh;
   @include flexSet(column, flex-start, center);
-  background-color: var(--outer_background_color);
+  background-color: $outer_background_color;
 
   header {
     @include flexSet(row, space-between, center);
     width: 460px;
     padding: 20px 20px;
-    border-bottom: 1px solid var(--register_input_border_color);
-    background-color: var(--all_background_color);
+    border-bottom: 1px solid $register_input_border_color;
+    background-color: $all_background_color;
 
     .register-title {
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--register_subject_font_color);
+      color: $register_subject_font_color;
     }
   }
 
   main {
     width: 460px;
     padding: 20px 20px;
-    background-color: var(--all_background_color);
+    background-color: $all_background_color;
 
     section {
       @include flexSet(column);
 
       > label {
         margin-top: 15px;
-        color: var(--register_subject_font_color);
+        color: $register_subject_font_color;
         font-weight: 700;
       }
 
@@ -42,11 +42,11 @@
           width: 98%;
           height: 40px;
           padding: 0 0 0 10px;
-          border: 1px solid var(--register_input_border_color);
+          border: 1px solid $register_input_border_color;
           border-radius: 5px;
 
           &::placeholder {
-            color: var(--register_input_font_color);
+            color: $register_input_font_color;
           }
         }
 
@@ -61,7 +61,7 @@
       margin-top: 15px;
       border: 0;
       border-radius: 5px;
-      color: var(--register_submit_font_color);
+      color: $register_submit_font_color;
       font-size: 12px;
       font-weight: 700;
     }
@@ -70,7 +70,7 @@
       height: 250px;
       margin-top: 20px;
       @include flexSet(column);
-      border: 1px solid var(--register_agree_section_border_color);
+      border: 1px solid $register_agree_section_border_color;
       border-radius: 6px;
 
       > section {
@@ -87,7 +87,7 @@
         }
 
         &:not(:first-child) {
-          border-top: 1px solid var(--register_agree_section_border_color);
+          border-top: 1px solid $register_agree_section_border_color;
         }
 
         input[type='checkbox'] {
