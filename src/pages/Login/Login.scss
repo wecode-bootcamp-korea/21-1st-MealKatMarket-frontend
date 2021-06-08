@@ -1,0 +1,102 @@
+@import '../../styles/variables.scss';
+
+.login-container {
+  background-color: var(--outer_background_color);
+  @include flexSet(row, center, center);
+
+  .background {
+    background-color: var(--all_background_color);
+    width: 500px;
+    height: 100vh;
+
+    .gnb-container {
+      @include flexSet(row, space-between, center);
+      height: 60px;
+      padding: 18px;
+
+      .home {
+        width: 24px;
+      }
+
+      .arrow {
+        height: 18px;
+      }
+    }
+
+    .form-wrapper {
+      @include flexSet(column, space-between, flex-start);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--login_font_color);
+      padding: 0px 18px;
+
+      .email,
+      .password {
+        margin: 24px 0px 15px 0px;
+      }
+
+      input {
+        width: 464px;
+        height: 43px;
+        border: 1px solid var(--login_input_border_color);
+        border-radius: 5px;
+        padding: 0px 12px;
+
+        &::placeholder {
+          color: var(--login_placeholder_font_color);
+        }
+
+        &:focus-visible {
+          outline: none;
+          border: 1px solid var(--login_input_bold_border_color);
+        }
+      }
+    }
+
+    .login-remember-wrapper {
+      @include flexSet(row, left, center);
+      margin-top: 20px;
+      padding: 0px 18px;
+
+      input {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+      }
+
+      label {
+        font-size: 14px;
+        color: var(--login_checkbox_inactive_color);
+      }
+    }
+
+    .login-button-wrapper {
+      @include flexSet(row, center, center);
+
+      button {
+        margin-top: 40px;
+        width: 464px;
+        height: 55px;
+        border: none;
+        border-radius: 8px;
+        background-color: var(--login_button_color);
+        color: var(--login_button_font_color);
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+
+    .more-button-wrapper {
+      @include flexSet(row, center, center);
+      margin-top: 24px;
+      font-weight: 400;
+      font-size: 14px;
+
+      a {
+        text-decoration: none;
+        color: var(--login_link_font_color);
+        padding: 0px 5px;
+      }
+    }
+  }
+}
