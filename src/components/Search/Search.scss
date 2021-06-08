@@ -1,16 +1,16 @@
-@import '../../styles/common.scss';
+@import '../../styles/variables.scss';
 
 .search-container {
   height: 100%;
   @include flexSet(column, flex-start, center);
-  background-color: var(--outer_background_color);
-  color: var(--search_text_color);
+  background-color: $outer_background_color;
+  color: $search_text_color;
 
   .background {
     width: 460px;
     height: 100vh;
     padding: 0 20px;
-    background-color: var(--all_background_color);
+    background-color: $all_background_color;
     .search-bar-container {
       .back-arrow {
         margin-top: 20px;
@@ -29,7 +29,7 @@
       .search-input-container {
         position: relative;
         padding: 28px 0;
-        background-color: var(--all_background_color);
+        background-color: $all_background_color;
 
         .search-input {
           width: 440px;
@@ -37,7 +37,7 @@
           padding: 0 0 0 15px;
           border: 0;
           border-radius: 20px;
-          background-color: var(--search_bar_background_color);
+          background-color: $search_bar_background_color;
 
           &:focus-visible {
             border-radius: 20px;
@@ -59,13 +59,13 @@
     .recommend-keyword {
       @include flexSet(column, flex-start, flex-start);
       margin-top: 15px;
-      background-color: var(--all_background_color);
+      background-color: $all_background_color;
     }
 
     .popular-keyword {
       margin-top: 30px;
       @include flexSet(column, flex-start, flex-start);
-      background-color: var(--all_background_color);
+      background-color: $all_background_color;
     }
 
     ul {
@@ -76,7 +76,7 @@
         @include flexSet(row, center, center);
         height: 30px;
         padding: 0 10px;
-        border: 1px solid var(--search_keyword_border_color);
+        border: 1px solid $search_keyword_border_color;
         border-radius: 20px;
         cursor: pointer;
 
