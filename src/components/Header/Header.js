@@ -16,11 +16,11 @@ class Header extends React.Component {
           <div className="logo-contatiner">
             <button className="logo-button">
               <a herf="#" className="logo-link">
-                <img className="logo" src="/logo3.png" alt="logo" />
+                <img className="logo" src="/images/logo3.png" alt="logo" />
               </a>
             </button>
           </div>
-          <img src="Search.svg"></img>
+          <img src="/icon/Search.svg" alt="search_icon" />
         </div>
         <div className="header-top-menu">
           <ul className="header-top-menu-list">
