@@ -1,46 +1,4 @@
-:root {
-  --all_background_color: #ffffff;
-  --header_font_color: #45433f;
-  --header_search_icon_color: #45433f;
-  --header_underline_color: #eb5402;
-  --header_border_color: #e5e5e5;
-  --login_border_color: #ededed;
-  --login_bold_font_color: #f55a04;
-  --login_button_color: #f55a04;
-  --login_button_font_color: #ffffff;
-  --login_checkbox_inactive_color: #bab8b5;
-  --login_checkbox_active_color: #5b5753;
-  --login_font_color: #45433f;
-  --login_icon_color: #45433f;
-  --login_input_border_color: #e0e0e0;
-  --login_input_bold_border_color: #45433f;
-  --login_link_font_color: #5b5753;
-  --login_placeholder_font_color: #bab8b5;
-  --outer_background_color: #f9f9f9;
-  --register_allow_font_color: #579bdb;
-  --register_agree_section_border_color: #eceded;
-  --register_first_checkbox_section_background_color: #f9f9f9;
-  --register_error_font_color: #f55b04;
-  --register_input_border_color: #e0e0e0;
-  --register_input_font_color: #bdbab7;
-  --register_subject_font_color: #5b5752;
-  --register_submit_background_color: #f3f3f0;
-  --register_submit_button_color: #f55b04;
-  --register_submit_font_color: #bbb8b5;
-  --register_title_font_color: #46433f;
-  --search_bar_background_color: #f6f6f6;
-  --search_bar_icon_color: #f55b04;
-  --search_keyword_border_color: #e9e9e9;
-  --search_text_color: #5b5752;
-}
-
 * {
   font-family: 'Spoqa Han Sans Neo', 'sans-serif' !important;
-}
-
-@mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
+  box-sizing: border-box;
 }
