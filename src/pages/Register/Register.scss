@@ -1,71 +1,107 @@
 @import '../../styles/common.scss';
 
-body {
+.register-container {
   height: 100vh;
   @include flexSet(column, flex-start, center);
   background-color: var(--outer_background_color);
-}
 
-header {
-  @include flexSet(row, space-between, center);
-  width: 500px;
-  padding: 20px 20px;
-  border-bottom: 1px solid var(--register_input_border_color);
-  background-color: var(--all_background_color);
+  header {
+    @include flexSet(row, space-between, center);
+    width: 460px;
+    padding: 20px 20px;
+    border-bottom: 1px solid var(--register_input_border_color);
+    background-color: var(--all_background_color);
 
-  .register-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--register_subject_font_color);
-  }
-}
-
-main {
-  width: 500px;
-  padding: 20px 20px;
-  background-color: var(--all_background_color);
-
-  section {
-    @include flexSet(column);
-
-    > label {
-      color: var(--register_subject_font_color);
+    .register-title {
+      font-size: 1.2rem;
       font-weight: 700;
-
-      &:not(:first-child) {
-        margin-top: 10px;
-      }
+      color: var(--register_subject_font_color);
     }
+  }
 
-    > div {
-      width: 100%;
+  main {
+    width: 460px;
+    padding: 20px 20px;
+    background-color: var(--all_background_color);
+
+    section {
       @include flexSet(column);
-      margin: 10px 0;
 
-      > input {
+      > label {
+        margin-top: 15px;
+        color: var(--register_subject_font_color);
+        font-weight: 700;
+      }
+
+      > div {
         width: 100%;
-        height: 40px;
-        border: 1px solid var(--register_input_border_color);
-        border-radius: 5px;
+        @include flexSet(column);
+        margin: 10px 0;
 
-        &::placeholder {
-          color: var(--register_input_font_color);
-          padding-left: 10px;
+        > input {
+          width: 98%;
+          height: 40px;
+          padding: 0 0 0 10px;
+          border: 1px solid var(--register_input_border_color);
+          border-radius: 5px;
+
+          &::placeholder {
+            color: var(--register_input_font_color);
+          }
+        }
+
+        > input:nth-child(2) {
+          margin-top: 12px;
         }
       }
+    }
+    input[type='submit'] {
+      width: 100%;
+      height: 50px;
+      margin-top: 15px;
+      border: 0;
+      border-radius: 5px;
+      color: var(--register_submit_font_color);
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-      > input:nth-child(2) {
-        margin-top: 10px;
+    .checkbox-container {
+      height: 250px;
+      margin-top: 20px;
+      @include flexSet(column);
+      border: 1px solid var(--register_agree_section_border_color);
+      border-radius: 6px;
+
+      > section {
+        width: 448px;
+        height: 100%;
+        padding-left: 10px;
+        @include flexSet(row, flex-start, center);
+
+        &:first-child {
+          border-radius: 4px;
+          background-color: var(
+            --register_first_checkbox_section_background_color
+          );
+        }
+
+        &:not(:first-child) {
+          border-top: 1px solid var(--register_agree_section_border_color);
+        }
+
+        input[type='checkbox'] {
+          width: 15px;
+          height: 15px;
+        }
+
+        label {
+          margin-top: 0px;
+          margin-left: 7px;
+          font-size: 14px;
+          font-weight: 400;
+        }
       }
     }
-  }
-  input[type='submit'] {
-    width: 100%;
-    height: 50px;
-    border: 0;
-    border-radius: 5px;
-    color: var(--register_submit_font_color);
-    font-size: 1rem;
-    font-weight: 700;
   }
 }
