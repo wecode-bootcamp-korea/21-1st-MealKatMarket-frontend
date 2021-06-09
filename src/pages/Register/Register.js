@@ -2,11 +2,87 @@ import React from 'react';
 import './Register.scss';
 
 class Register extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+      passwordConfirm: '',
+      name: '',
+      phoneNumber: '',
+      emailAlertText: '',
+      passwordAlertText: '',
+      phoneAlertText: '',
+    };
+  }
+
+  validateEmail = () => {
+    const { email } = this.state;
+    const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,10})+$/;
+
+    if (email) {
+      email.match(regexEmail)
+        ? this.setState({ emailAlertText: '유효한 이메일입니다.' })
+        : this.setState({
+            emailAlertText: '유효한 이메일을 입력해주세요.',
+          });
+    } else {
+      this.setState({ emailAlertText: '' });
+    }
+  };
+
+  validatePassword = () => {
+    const { password, passwordConfirm } = this.state;
+
+    if (password && passwordConfirm) {
+      if (password === passwordConfirm) {
+        const regexPassword =
+          /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{7,15}$/;
+        passwordConfirm.match(regexPassword)
+          ? this.setState({ passwordAlertText: '유효한 비밀번호입니다' })
+          : this.setState({
+              passwordAlertText: '8자 이상 15자 이하의 비밀번호를 입력해주세요',
+            });
+      } else if (password !== passwordConfirm) {
+        this.setState({ passwordAlertText: '비밀번호가 일치하지 않습니다' });
+      }
+    } else {
+      this.setState({ passwordAlertText: '' });
+    }
+  };
+
+  validatePhoneNumber = () => {
+    const { phoneNumber } = this.state;
+
+    if (phoneNumber) {
+      const regexPhoneNumber = /^\d{3}-\d{4}-\d{4}$/;
+      phoneNumber.match(regexPhoneNumber)
+        ? this.setState({ phoneAlertText: '유효한 휴대폰 번호입니다.' })
+        : this.setState({
+            phoneAlertText: '010-1234-5678 형식으로 입력해주세요',
+          });
+    } else {
+      this.setState({ phoneAlertText: '' });
+    }
+  };
+
+  handleInput = e => {
+    const {
+      target: { name, value },
+    } = e;
+    this.setState({
+      [name]: value,
+    });
+  };
+
   render() {
+    const { emailAlertText, passwordAlertText, phoneAlertText } = this.state;
     return (
       <div className="register-container">
         <header>
-          <span className="back-arrow">뒤로가기</span>
+          <span className="back-arrow">
+            <img src="/images/LeftArrow.svg" />
+          </span>
           <span className="register-title">회원가입</span>
           <span className="home-icon">
             <img src="/images/home_orange.svg" />
@@ -17,30 +93,59 @@ class Register extends React.Component {
             <section className="email-container">
               <label>이메일</label>
               <div>
-                <input type="email" placeholder="email을 입력해주세요" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="example@xxx.com"
+                  onChange={this.handleInput}
+                  onKeyUp={this.validateEmail}
+                />
               </div>
+              <span>{emailAlertText}</span>
             </section>
             <section className="password-container">
               <label>비밀번호</label>
               <div>
                 <input
                   type="password"
+                  name="password"
                   placeholder="8~20자 이상의 패스워드를 입력해주세요"
+                  onChange={this.handleInput}
+                  onKeyUp={this.validatePassword}
                 />
-                <input type="password" placeholder="비밀번호 확인" />
+                <input
+                  type="password"
+                  name="passwordConfirm"
+                  placeholder="비밀번호 확인"
+                  onChange={this.handleInput}
+                  onKeyUp={this.validatePassword}
+                />
               </div>
+              <span>{passwordAlertText}</span>
             </section>
             <section className="name-container">
               <label>이름</label>
               <div>
-                <input type="text" placeholder="이름 입력" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="이름 입력"
+                  onChange={this.handleInput}
+                />
               </div>
             </section>
             <section className="phone-container">
               <label>휴대전화</label>
               <div>
-                <input type="text" placeholder="-제외하고 번호 입력" />
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  placeholder="-를 포함하여 입력"
+                  onChange={this.handleInput}
+                  onKeyUp={this.validatePhoneNumber}
+                />
               </div>
+              <span>{phoneAlertText}</span>
             </section>
             <section className="checkbox-container">
               <section>
