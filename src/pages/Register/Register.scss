@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 .register-container {
-  height: 100vh;
   @include flexSet(column, flex-start, center);
   background-color: $outer_background_color;
 
