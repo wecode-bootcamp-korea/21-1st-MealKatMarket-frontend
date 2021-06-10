@@ -2,13 +2,14 @@
 
 .detail {
   @include flexSet(column, center, center);
+  background-color: $outer_background_color;
 
   section {
     width: 500px;
 
     .detail-header {
-      width: 480px;
-      padding-left: 10px;
+      width: 500px;
+      padding: 0 5px;
       position: fixed;
       top: 17px;
       @include flexSet(row);
@@ -40,11 +41,21 @@
     }
 
     .invisible {
-      display: none;
+      animation: fade-out 0.1s;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes fade-out {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
     }
 
     .product-preview-information {
-      width: 100%;
+      background-color: $all_background_color;
       > .product-photo {
         width: 500px;
         height: 500px;
@@ -95,17 +106,37 @@
     .product-delivery-info {
       height: 320px;
       margin-top: 15px;
-      border: 1px solid black;
+
+      > img {
+        width: 100%;
+      }
+    }
+
+    .product-recommend {
+      height: 170px;
+      padding: 20px 15px;
+      background-color: $all_background_color;
+
+      .recommend-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: $detail_product_recommend_title_color;
+      }
     }
 
     .product-main-information {
-      height: 700px;
+      height: 500px;
       margin-top: 15px;
+      background-color: $all_background_color;
 
       .product-tab {
         ul {
           @include flexSet(row, space-around, center);
         }
+      }
+
+      .product-main-image-container {
+        @include flexSet(row, center, center);
       }
     }
 

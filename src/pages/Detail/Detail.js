@@ -20,22 +20,25 @@ class Detail extends React.Component {
   };
 
   handleScroll = e => {
-    const header = document.querySelector('.detail-header');
     const headerHeight = window.pageYOffset;
     const mainTabHeight = document.querySelector(
       '.product-main-information'
     ).clientHeight;
 
-    headerHeight - 50 > mainTabHeight
+    console.log(headerHeight, mainTabHeight);
+    headerHeight > mainTabHeight + 150
       ? this.setState({ isVisible: false })
       : this.setState({ isVisible: true });
   };
 
   render() {
+    const { isVisible } = this.state;
     return (
       <main className="detail">
         <section>
-          <header className="detail-header">
+          <header
+            className={isVisible ? 'detail-header' : 'detail-header invisible'}
+          >
             <section className="left-icon-container">
               <span>
                 <img alt="backward" src="/icon/LeftArrow.svg" />
@@ -66,7 +69,16 @@ class Detail extends React.Component {
               </Link>
             </article>
           </section>
-          <section className="product-delivery-info"></section>
+          <section className="product-delivery-info">
+            <img
+              alt="delivery info"
+              src="/images/delivery_info.png"
+              class="delivery-info-image"
+            />
+          </section>
+          <section className="product-recommend">
+            <p className="recommend-title">이 상품은 어떠세요?</p>
+          </section>
           <section className="product-main-information">
             <section className="product-tab">
               <ul>
@@ -74,7 +86,9 @@ class Detail extends React.Component {
                 <li>후기</li>
               </ul>
             </section>
-            <section className="product-main-image-container"></section>
+            <section className="product-main-image-container">
+              테스트 페이지
+            </section>
           </section>
           <section className="purchase-bar">
             <img alt="heart" src="/icon/heart.svg" />
