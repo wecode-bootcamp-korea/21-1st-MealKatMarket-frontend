@@ -1,0 +1,128 @@
+@import '../../styles/variables.scss';
+
+.detail {
+  @include flexSet(column, center, center);
+
+  section {
+    width: 500px;
+
+    .detail-header {
+      width: 480px;
+      padding-left: 10px;
+      position: fixed;
+      top: 17px;
+      @include flexSet(row);
+
+      .left-icon-container {
+        width: 50%;
+
+        > span > img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      .right-icon-container {
+        width: 50%;
+        @include flexSet(row, flex-end, center);
+
+        > span {
+          > img {
+            width: 25px;
+            height: 25px;
+          }
+
+          &:not(:last-child) {
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+
+    .product-preview-information {
+      width: 100%;
+      > .product-photo {
+        width: 500px;
+        height: 500px;
+      }
+
+      > .product-info {
+        padding: 15px 15px;
+
+        > .product-company {
+          color: $detail_product_company_color;
+          font-size: 12px;
+        }
+
+        > .product-title {
+          margin-top: 7px;
+          color: $detail_product_title_color;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        > .product-price {
+          margin-top: 15px;
+          color: $detail_product_price_color;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        > .product-origin {
+          margin-top: 20px;
+          color: $detail_product_origin_color;
+          font-size: 8px;
+        }
+
+        > .product-rating {
+          margin-top: 14px;
+          margin-bottom: 6px;
+          color: $detail_product_rating_color;
+        }
+
+        > .product-review {
+          color: $detail_product_review_color;
+          font-size: 10px;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .product-delivery-info {
+      height: 320px;
+      margin-top: 15px;
+      border: 1px solid black;
+    }
+
+    .product-main-information {
+      height: 700px;
+      margin-top: 15px;
+
+      .product-tab {
+        ul {
+          @include flexSet(row, space-around, center);
+        }
+      }
+    }
+
+    .purchase-bar {
+      width: 500px;
+      padding: 0 10px;
+      @include flexSet(row, space-evenly, center);
+      position: fixed;
+      bottom: 10px;
+      background-color: #ffffff;
+
+      .purchase-button {
+        width: 430px;
+        height: 45px;
+        border: 0;
+        border-radius: 8px;
+        background-color: $detail_product_purchase_button_color;
+        color: $detail_product_purchase_text_color;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}
