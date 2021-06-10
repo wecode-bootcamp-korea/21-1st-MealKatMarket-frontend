@@ -48,7 +48,8 @@ $bargain_before_price_text_color: #bbb8b5;
 $bargain_percent_color: #f56b1d;
 $bargain_button_color: #f55b04;
 $bargain_detail_text_color: #999999;
-
+$modal_white_color: #ffffff;
+$modal_button_color: #f55b04;
 @mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
   display: flex;
   flex-direction: $direction;

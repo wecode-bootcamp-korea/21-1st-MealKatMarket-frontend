@@ -1,8 +1,29 @@
 import React from 'react';
 import './Bargain.scss';
+import Modal from '../../components/Modal/Modal';
 
 class Bargain extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false,
+    };
+  }
+
+  openModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
   render() {
+    const { openModal } = this;
     return (
       <div className="bargain-container">
         <div className="background">
@@ -53,8 +74,8 @@ class Bargain extends React.Component {
               <span className="now-price">6,500원</span>
               <span className="before-price">9,900원</span>
               <p> 오븐 나폴리 피자 3종</p>
-              <a href="#" className="open-link">
-                <button>
+              <a className="open-link">
+                <button onClick={openModal}>
                   <img src="/icon/Notification.svg" alt="noti-icon" />
                   오픈 알림 신청
                 </button>
@@ -62,6 +83,7 @@ class Bargain extends React.Component {
             </div>
           </section>
         </div>
+        {this.state.visible ? <Modal closeModal={this.closeModal} /> : null}
       </div>
     );
   }
