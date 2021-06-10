@@ -10,6 +10,7 @@ $footer_content_text_color: #605c57;
 $footer_divide_line_color: #e9e8e2;
 $footer_subject_text_color: #bcb9b6;
 $footer_title_text_color: #605c57;
+$header_hover_font_color: #f55a04;
 $login_border_color: #ededed;
 $login_bold_font_color: #f55a04;
 $login_button_color: #f55a04;
@@ -38,6 +39,14 @@ $search_bar_background_color: #f6f6f6;
 $search_bar_icon_color: #f55b04;
 $search_keyword_border_color: #e9e9e9;
 $search_text_color: #5b5752;
+$bottomnav_border_color: #e9e8e1;
+$bottomnav_font_color: #45433f;
+$bottomnav_hover_color: #f55b04;
+$favorite_title_color: #45433f;
+$favorite_text_color: #5b5752;
+$favorite_login_button_color: #f55b04;
+$favorite_login_text_color: #ffffff;
+$favorite_join_text_color: #9d9995;
 
 @mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
   display: flex;
