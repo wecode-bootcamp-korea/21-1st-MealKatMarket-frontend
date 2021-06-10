@@ -7,7 +7,7 @@ class Detail extends React.Component {
     super();
     this.state = {
       productInfo: [],
-      scrollTop: 0,
+      isVisible: true,
     };
   }
 
@@ -15,19 +15,20 @@ class Detail extends React.Component {
     window.addEventListener('scroll', this.handleScroll);
   };
 
-  componentDidUpdate = () => {
-    console.log(this.state.scrollTop);
-  };
-
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this.handleScroll);
   };
 
   handleScroll = e => {
-    const scrollTop = ('scroll', e.srcElement.scrollingElement.scrollTop);
-    this.setState({
-      scrollTop,
-    });
+    const header = document.querySelector('.detail-header');
+    const headerHeight = window.pageYOffset;
+    const mainTabHeight = document.querySelector(
+      '.product-main-information'
+    ).clientHeight;
+
+    headerHeight - 50 > mainTabHeight
+      ? this.setState({ isVisible: false })
+      : this.setState({ isVisible: true });
   };
 
   render() {
