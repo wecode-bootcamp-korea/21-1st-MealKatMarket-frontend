@@ -9,10 +9,11 @@
 
     .detail-header {
       width: 500px;
-      padding: 0 5px;
+      height: 50px;
+      padding: 10px 10px;
       position: fixed;
-      top: 17px;
-      @include flexSet(row);
+      top: 0;
+      @include flexSet(row, flex-start, center);
 
       .left-icon-container {
         width: 50%;
@@ -47,6 +48,7 @@
 
     @keyframes fade-out {
       from {
+        background-color: #ffffff;
         opacity: 1;
       }
       to {
@@ -125,13 +127,24 @@
     }
 
     .product-main-information {
-      height: 500px;
+      height: 1000px;
       margin-top: 15px;
       background-color: $all_background_color;
 
       .product-tab {
+        border-bottom: 1px solid $detail_tab_border_color;
+        margin-bottom: 15px;
         ul {
+          height: 50px;
           @include flexSet(row, space-around, center);
+
+          li {
+            height: 100%;
+            @include flexSet(row, center, center);
+            border-bottom: 2px solid $detail_tab_border_bottom_color;
+            color: $detail_tab_text_color;
+            font-weight: 700;
+          }
         }
       }
 

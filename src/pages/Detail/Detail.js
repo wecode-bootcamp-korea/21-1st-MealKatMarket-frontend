@@ -5,6 +5,7 @@ import './Detail.scss';
 class Detail extends React.Component {
   constructor() {
     super();
+    this.mainTab = React.createRef();
     this.state = {
       productInfo: [],
       isVisible: true,
@@ -21,23 +22,23 @@ class Detail extends React.Component {
 
   handleScroll = e => {
     const headerHeight = window.pageYOffset;
-    const mainTabHeight = document.querySelector(
-      '.product-main-information'
-    ).clientHeight;
+    const mainTabHeight = this.mainTab.current.offsetTop;
 
-    console.log(headerHeight, mainTabHeight);
-    headerHeight > mainTabHeight + 150
+    headerHeight > mainTabHeight - 60
       ? this.setState({ isVisible: false })
       : this.setState({ isVisible: true });
   };
 
   render() {
     const { isVisible } = this.state;
+
     return (
       <main className="detail">
         <section>
           <header
-            className={isVisible ? 'detail-header' : 'detail-header invisible'}
+            className={
+              isVisible ? 'detail-header visible ' : 'detail-header invisible'
+            }
           >
             <section className="left-icon-container">
               <span>
@@ -79,11 +80,13 @@ class Detail extends React.Component {
           <section className="product-recommend">
             <p className="recommend-title">이 상품은 어떠세요?</p>
           </section>
-          <section className="product-main-information">
+          <section className="product-main-information" ref={this.mainTab}>
             <section className="product-tab">
               <ul>
                 <li>상품정보</li>
+                <li>구매정보</li>
                 <li>후기</li>
+                <li>문의</li>
               </ul>
             </section>
             <section className="product-main-image-container">
