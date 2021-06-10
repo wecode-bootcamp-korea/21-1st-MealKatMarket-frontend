@@ -34,7 +34,13 @@ $favorite_text_color: #5b5752;
 $favorite_login_button_color: #f55b04;
 $favorite_login_text_color: #ffffff;
 $favorite_join_text_color: #9d9995;
-
+$favorite_join_hover_color: #45433f;
+$favorite_blank_background_color: #f4f4f4;
+$favorite_empty_text_color: #bbb8b5;
+$favorite_wish_popular_text_color: #5b5752;
+$favorite_vertical_card_text_color: #5b5752;
+$favorite_vertical_card_review_color: #bbb8b5;
+$favorite_horizontal_card_text_color: #404040;
 @mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
   display: flex;
   flex-direction: $direction;
