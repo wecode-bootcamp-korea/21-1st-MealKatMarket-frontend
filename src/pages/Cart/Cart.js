@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import './Cart.scss';
 
 class Cart extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
   render() {
     return (
       <div className="cart-container">

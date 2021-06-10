@@ -1,24 +1,18 @@
 import React from 'react';
 import './Search.scss';
 
+const RECOMMEND_KEYWORD = [
+  '곰표떡볶이',
+  'LA갈비',
+  '육즙만두',
+  '감자탕',
+  '닭갈비',
+];
+const POPULAR_KEYWORD = ['만두', '찹쌀떡', '치즈볼', '도시락', '닭발'];
 class Search extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      recommendKeyword: [
-        '곰표떡볶이',
-        'LA갈비',
-        '육즙만두',
-        '감자탕',
-        '닭갈비',
-      ],
-      popularKeyword: ['만두', '찹쌀떡', '치즈볼', '도시락', '닭발'],
-    };
-  }
   render() {
-    const { recommendKeyword, popularKeyword } = this.state;
     return (
-      <div className="search-container">
+      <div className="search">
         <div className="background">
           <section className="search-bar-container">
             <section className="back-arrow">
@@ -28,26 +22,24 @@ class Search extends React.Component {
             <div className="search-input-container">
               <input type="text" className="search-input" />
               <span>
-                <img src="/images/search.svg" />
+                <img alt="search" src="/images/search.svg" />
               </span>
             </div>
           </section>
           <section className="recommend-keyword">
             <p className="keyword-title">추천 검색어</p>
             <ul>
-              {recommendKeyword.length > 0 &&
-                recommendKeyword.map((data, index) => {
-                  return <li key={index}>{data}</li>;
-                })}
+              {RECOMMEND_KEYWORD.map((data, index) => {
+                return <li key={index}>{data}</li>;
+              })}
             </ul>
           </section>
           <section className="popular-keyword">
             <p className="keyword-title">인기 검색어</p>
             <ul>
-              {popularKeyword.length > 0 &&
-                popularKeyword.map((data, index) => {
-                  return <li key={index}>{data}</li>;
-                })}
+              {POPULAR_KEYWORD.map((data, index) => {
+                return <li key={index}>{data}</li>;
+              })}
             </ul>
           </section>
         </div>
