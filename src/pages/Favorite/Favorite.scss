@@ -3,12 +3,10 @@
 .favorite-container {
   @include flexSet(column, center, center);
   background-color: $outer_background_color;
-  height: 100vh;
 
   .background {
     position: relative;
     width: 500px;
-    height: 100vh;
     background-color: $all_background_color;
 
     .gnb-container {
@@ -70,7 +68,7 @@
     .blank {
       width: 500px;
       height: 12px;
-      background-color: $favorite_blank_background_color;
+      background-color: $all_blank_background_color;
     }
 
     .empty-container {
