@@ -7,6 +7,7 @@ import Login from './pages/Login/Login';
 import BottomNav from './components/BottomNav/BottomNav';
 import Favorite from './pages/Favorite/Favorite';
 import Detail from './pages/Detail/Detail';
+import BottomModal from './components/BottomModal/BottomModal';
 
 class Routes extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class Routes extends React.Component {
           <Route exact path="/bottomnav" component={BottomNav} />
           <Route exact path="/favorite" component={Favorite} />
           <Route exact path="/detail" component={Detail} />
+          <Route exact path="/bottom-modal" component={BottomModal} />
         </Switch>
       </Router>
     );

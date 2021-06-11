@@ -20,18 +20,23 @@ class Detail extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   };
 
-  handleScroll = e => {
+  handleScroll = () => {
     const headerHeight = window.pageYOffset;
     const mainTabHeight = this.mainTab.current.offsetTop;
 
-    headerHeight > mainTabHeight - 60
-      ? this.setState({ isVisible: false })
-      : this.setState({ isVisible: true });
+    if (headerHeight > mainTabHeight - 60) {
+      this.setState({ isVisible: false });
+    } else if (headerHeight < mainTabHeight - 60) {
+      this.setState({ isVisible: true });
+    }
+  };
+
+  toggleModal = () => {
+    console.log('object');
   };
 
   render() {
     const { isVisible } = this.state;
-
     return (
       <main className="detail">
         <section>
@@ -95,7 +100,9 @@ class Detail extends React.Component {
           </section>
           <section className="purchase-bar">
             <img alt="heart" src="/icon/heart.svg" />
-            <button className="purchase-button">구매하기</button>
+            <button className="purchase-button" onClick={this.toggleModal}>
+              구매하기
+            </button>
           </section>
         </section>
       </main>
