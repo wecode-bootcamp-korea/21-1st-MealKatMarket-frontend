@@ -1,0 +1,21 @@
+.Status {
+  span {
+    padding: 0 8px;
+    display: inline-block;
+    height: 18px;
+
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 11px;
+  }
+
+  .new {
+    color: $product-card-text-color;
+    background-color: $all_white_color;
+  }
+
+  .sale {
+    color: $all_white_color;
+    background-color: $product-card-new-status-background-color;
+  }
+}

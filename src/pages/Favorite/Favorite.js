@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Favorite.scss';
 
 class Favorite extends React.Component {
@@ -9,7 +10,7 @@ class Favorite extends React.Component {
           <div className="gnb-container">
             <h1>관심상품</h1>
           </div>
-          {/* <div className="wish-login-container">
+          <div className="wish-login-container">
             <p>
               로그인하고 <br /> 관심상품을 담아보세요.
             </p>
@@ -18,9 +19,9 @@ class Favorite extends React.Component {
             </div>
             <div className="join-link-wrapper">
               <span>쿠캣마켓 회원이 되어보세요!</span>
-              <a href="#">회원가입</a>
+              <Link to="/">회원가입</Link>
             </div>
-          </div> */}
+          </div>
           <div className="empty-container">
             <img src="/images/텅.png" alt="empty" />
             <span>관심상품이 없습니다.</span>

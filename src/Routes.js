@@ -4,6 +4,8 @@ import Header from './components/Header/Header';
 import Main from './pages/Main/Main';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
+import Product from './pages/Product/Product';
+import ProductCard from './components/ProductCard/ProductCard';
 import BottomNav from './components/BottomNav/BottomNav';
 import Bargain from './pages/Bargain/Bargain';
 import Favorite from './pages/Favorite/Favorite';
@@ -18,6 +20,8 @@ class Routes extends React.Component {
           <Route exact path="/header" component={Header} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/product" component={Product} />
+          <Route exact path="/productcard" component={ProductCard} />
           <Route exact path="/bottomnav" component={BottomNav} />
           <Route exact path="/bargain" component={Bargain} />
           <Route exact path="/favorite" component={Favorite} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './FavoriteVerticalCard.scss';
 
 class FavoriteVerticalCard extends React.Component {
@@ -7,15 +8,15 @@ class FavoriteVerticalCard extends React.Component {
       <li className="favorite-vertical-card-container">
         <div className="card-wrapper">
           <div className="image-wrapper">
-            <a href="#" className="image-link">
-              <img src="/images/닭갈비.png" alt="food-image" />
-              <a href="#" className="cart-icon-link">
+            <Link to="/" className="image-link">
+              <img src="/images/닭갈비.png" alt="food" />
+              <Link to="/" className="cart-icon-link">
                 <img src="/icon/cart-button.svg" alt="cart-icon" />
-              </a>
-            </a>
+              </Link>
+            </Link>
           </div>
           <div className="product-info-wrapper">
-            <a className="product-info">
+            <Link to="/" className="product-info">
               <div className="product-name">
                 밀캣마켓 매콤크림 닭갈비 650g / 닭갈비 파스타
               </div>
@@ -23,17 +24,17 @@ class FavoriteVerticalCard extends React.Component {
                 <span className="price">9,900</span>
                 <span className="won">원</span>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="product-etc">
-            <a href="#" className="heart-link">
+            <Link to="/" className="heart-link">
               <img src="/icon/heart-gray.svg" alt="heart-icon" />
-            </a>
-            <a href="#" className="review-link">
+            </Link>
+            <Link to="/" className="review-link">
               <span className="review-line">|</span>
               <span className="review-text">후기</span>
               <span className="review-count">40,542</span>
-            </a>
+            </Link>
           </div>
         </div>
       </li>
