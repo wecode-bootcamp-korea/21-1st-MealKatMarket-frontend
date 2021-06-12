@@ -1,69 +1,67 @@
 @import '../../styles/variables.scss';
 
 .outer {
+  background: black;
   @include flexSet(row, center, center);
-}
 
-.BottomModal {
-  width: 500px;
-  position: fixed;
-  bottom: 0;
-  padding: 10px 12px;
-  background-color: $all_background_color;
-
-  .modal-header {
-    @include flexSet(row, space-between, center);
-
-    .header-title {
-      font-size: 16px;
-      font-weight: 500;
-    }
-    .close-button {
-      all: unset;
-      cursor: pointer;
-    }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+    opacity: 0.5;
+    background-color: rgba(49, 49, 49, 0.8);
   }
 
-  .modal-option {
-    .selected {
-      border: 1px solid $bottomModal_option_selected_border;
-    }
+  .BottomModal {
+    width: 500px;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 12px;
+    border-radius: 20px 20px 0 0;
+    background-color: $all_background_color;
+    z-index: 2;
 
-    .required-title,
-    .selected-title {
-      padding: 10px 0;
-      font-size: 10px;
-      color: $bottomModal_option_title_color;
-    }
-
-    .required-trigger,
-    .selected-trigger,
-    .required-option-item,
-    .selected-option-item {
-      all: unset;
-      width: 450px;
-      height: 30px;
+    .modal-header {
       @include flexSet(row, space-between, center);
-      padding: 5px 12px;
-      border: 1px solid $bottomModal_option_border_color;
-      color: $bottomModal_option_value_color;
 
-      > img {
-        width: 15px;
-        height: 15px;
+      .header-title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .close-button {
+        all: unset;
+        cursor: pointer;
       }
     }
 
-    .added-option {
-      margin: 10px 0;
-      padding: 20px 12px;
-      border-radius: 8px;
-      background-color: $outer_background_color;
+    .modal-option {
+      .selected {
+        border: 1px solid $bottomModal_option_selected_border;
+      }
 
-      .title-container {
+      .required-title,
+      .selected-title {
+        padding: 10px 0;
+        font-size: 10px;
+        color: $bottomModal_option_title_color;
+      }
+
+      .required-trigger,
+      .selected-trigger,
+      .required-option-item,
+      .selected-option-item {
+        all: unset;
+        width: 450px;
+        height: 30px;
         @include flexSet(row, space-between, center);
-        font-size: 12px;
-        font-weight: 800;
+        padding: 5px 12px;
+        border: 1px solid $bottomModal_option_border_color;
+        color: $bottomModal_option_value_color;
 
         > img {
           width: 15px;
@@ -71,61 +69,80 @@
         }
       }
 
-      .quantity-container {
-        padding-top: 10px;
-        @include flexSet(row, flex-start, center);
+      .added-option {
+        margin: 10px 0;
+        padding: 20px 12px;
+        border-radius: 8px;
+        background-color: $outer_background_color;
 
-        .quantity-counter {
-          > button {
-            border: 1px solid $bottomModal_option_border_color;
-            background-color: #fff;
-          }
-
-          .quantity-count {
-            width: 25px;
-            border: 1px solid $bottomModal_option_border_color;
-            text-align: center;
-          }
-        }
-
-        .quantity-price {
-          padding-left: 12px;
+        .title-container {
+          @include flexSet(row, space-between, center);
           font-size: 12px;
           font-weight: 800;
-          color: $bottomModal_option_value_color;
+
+          > img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+
+        .quantity-container {
+          padding-top: 10px;
+          @include flexSet(row, flex-start, center);
+
+          .quantity-counter {
+            > button {
+              border: 1px solid $bottomModal_option_border_color;
+              background-color: #fff;
+            }
+
+            .quantity-count {
+              width: 25px;
+              border: 1px solid $bottomModal_option_border_color;
+              text-align: center;
+            }
+          }
+
+          .quantity-price {
+            padding-left: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            color: $bottomModal_option_value_color;
+          }
         }
       }
     }
-  }
-  .divide-line {
-    border-bottom: 1px solid $bottomModal_option_border_color;
-    padding-bottom: 10px;
-  }
+    .divide-line {
+      border-bottom: 1px solid $bottomModal_option_border_color;
+      padding-bottom: 10px;
+    }
 
-  .purchase-total {
-    @include flexSet(row, space-between, center);
-    padding: 20px 0;
+    .purchase-total {
+      width: 100%;
+      @include flexSet(row, space-between, center);
+      padding: 20px 0;
 
-    .total-quantity,
-    .total-price {
-      color: $bottomModal_total_font_color;
+      .total-quantity,
+      .total-price {
+        color: $bottomModal_total_font_color;
 
-      > span {
-        padding-left: 3px;
-        color: $bottomModal_total_quantity_color;
+        > span {
+          padding-left: 3px;
+          color: $bottomModal_total_quantity_color;
+        }
       }
     }
-  }
 
-  .add-card-button {
-    width: 100%;
-    height: 50px;
-    margin-top: 10px;
-    border: 0;
-    border-radius: 9px;
-    background-color: $bottomModal_submit_button_background_color;
-    color: $bottomModal_submit_text_color;
-    font-size: 16px;
-    font-weight: 700;
+    .add-card-button {
+      width: 100%;
+      height: 50px;
+      margin-top: 10px;
+      border: 0;
+      border-radius: 9px;
+      background-color: $bottomModal_submit_button_background_color;
+      color: $bottomModal_submit_text_color;
+      font-size: 16px;
+      font-weight: 700;
+    }
   }
 }

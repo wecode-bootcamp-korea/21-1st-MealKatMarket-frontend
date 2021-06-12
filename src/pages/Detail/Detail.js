@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BottomModal from '../../components/BottomModal/BottomModal';
 import './Detail.scss';
 
 class Detail extends React.Component {
@@ -7,6 +8,7 @@ class Detail extends React.Component {
     super();
     this.mainTab = React.createRef();
     this.state = {
+      modal: false,
       productInfo: [],
       isVisible: true,
     };
@@ -32,14 +34,24 @@ class Detail extends React.Component {
   };
 
   toggleModal = () => {
-    console.log('object');
+    this.setState({
+      modal: !this.state.modal,
+    });
   };
 
   render() {
-    const { isVisible } = this.state;
+    const { isVisible, modal } = this.state;
+
+    if (modal) {
+      document.body.classList.add('active-modal');
+    } else {
+      document.body.classList.remove('active-modal');
+    }
+
     return (
       <main className="detail">
-        <section>
+        {modal && <BottomModal toggleModal={this.toggleModal} />}
+        <section className="detail-container">
           <header
             className={
               isVisible ? 'detail-header visible ' : 'detail-header invisible'
@@ -89,9 +101,7 @@ class Detail extends React.Component {
             <section className="product-tab">
               <ul>
                 <li>상품정보</li>
-                <li>구매정보</li>
                 <li>후기</li>
-                <li>문의</li>
               </ul>
             </section>
             <section className="product-main-image-container">

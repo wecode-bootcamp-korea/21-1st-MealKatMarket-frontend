@@ -1,11 +1,16 @@
 @import '../../styles/variables.scss';
 
+.active-modal {
+  overflow-y: hidden;
+}
+
 .detail {
   @include flexSet(column, center, center);
   background-color: $outer_background_color;
 
-  section {
+  .detail-container {
     width: 500px;
+    z-index: 0;
 
     .detail-header {
       width: 500px;
@@ -154,10 +159,10 @@
 
     .purchase-bar {
       width: 500px;
-      padding: 0 10px;
+      padding: 10px 10px;
       @include flexSet(row, space-evenly, center);
       position: fixed;
-      bottom: 10px;
+      bottom: 0;
       background-color: #ffffff;
 
       .purchase-button {

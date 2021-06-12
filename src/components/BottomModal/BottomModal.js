@@ -11,8 +11,6 @@ class BottomModal extends React.Component {
     };
   }
 
-  componentDidMount() {}
-
   handleToggleClick = e => {
     const {
       target: { name },
@@ -22,16 +20,28 @@ class BottomModal extends React.Component {
     });
   };
 
+  clickItems = e => {
+    const { selectedItems } = this.state;
+    const {
+      target: {
+        dataset: { name, price },
+      },
+    } = e;
+  };
+
   render() {
-    const { isRequired, isSelected } = this.state;
+    const { isRequired, isSelected, selectedItems } = this.state;
+    const { toggleModal } = this.props;
+
     return (
       <div className="outer">
+        <div className="overlay" onClick={toggleModal}></div>
         <section className="BottomModal">
           <section className="modal-header">
             <p></p>
             <p className="header-title">옵션선택</p>
             <button className="close-button">
-              <img alt="close" src="/icon/Close.svg" />
+              <img alt="close" src="/icon/Close.svg" onClick={toggleModal} />
             </button>
           </section>
           <section className="modal-option">
@@ -48,7 +58,14 @@ class BottomModal extends React.Component {
               {isRequired && (
                 <ul className="required-option-list selected">
                   {/* fetch시 map으로 돌릴 예정 */}
-                  <li className="required-option-item">도시락1</li>
+                  <li
+                    className="required-option-item"
+                    data-price="3000"
+                    data-name="도시락1"
+                    onClick={this.clickItems}
+                  >
+                    도시락1
+                  </li>
                 </ul>
               )}
             </section>
@@ -69,22 +86,29 @@ class BottomModal extends React.Component {
                 </ul>
               )}
             </section>
-            <section className="added-option">
-              <section className="title-container">
-                <p className="option-title">화덕 연어스테이크</p>
-                <img alt="close" src="/icon/close.svg" />
-              </section>
-              <section className="quantity-container">
-                <section className="quantity-counter">
-                  <button className="quantity-minus">-</button>
-                  <input type="text" class="quantity-count" value="1" />
-                  <button className="quantity-plus">+</button>
+            {selectedItems.length > 0 && (
+              <section className="added-option">
+                <section className="title-container">
+                  <p className="option-title">화덕 연어스테이크</p>
+                  <img alt="close" src="/icon/close.svg" />
                 </section>
-                <section className="quantity-price">
-                  <p>9,500원</p>
+                <section className="quantity-container">
+                  <section className="quantity-counter">
+                    <button className="quantity-minus">-</button>
+                    <input
+                      type="text"
+                      class="quantity-count"
+                      data-count="1"
+                      value="1"
+                    />
+                    <button className="quantity-plus">+</button>
+                  </section>
+                  <section className="quantity-price">
+                    <p>9,500원</p>
+                  </section>
                 </section>
               </section>
-            </section>
+            )}
           </section>
           <div className="divide-line"></div>
           <section className="purchase-total">
