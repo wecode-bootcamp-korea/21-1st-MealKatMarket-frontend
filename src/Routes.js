@@ -8,6 +8,7 @@ import Product from './pages/Product/Product';
 import ProductCard from './components/ProductCard/ProductCard';
 import BottomNav from './components/BottomNav/BottomNav';
 import Bargain from './pages/Bargain/Bargain';
+import Timer from './components/Timer/Timer';
 import Favorite from './pages/Favorite/Favorite';
 import FavoriteHorizontalCard from './components/FavoriteHorizontalCard/FavoriteHorizontalCard';
 import FavoriteVerticalCard from './components/FavoriteVerticalCard/FavoriteVerticalCard';
@@ -24,6 +25,7 @@ class Routes extends React.Component {
           <Route exact path="/productcard" component={ProductCard} />
           <Route exact path="/bottomnav" component={BottomNav} />
           <Route exact path="/bargain" component={Bargain} />
+          <Route exact path="/timer" component={Timer} />
           <Route exact path="/favorite" component={Favorite} />
           <Route
             exact
