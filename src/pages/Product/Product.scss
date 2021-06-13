@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.product-container {
+  @include flexSet(column, center, center);
+  background-color: $outer_background_color;
+
+  .background {
+    width: 500px;
+    height: 100vh;
+    background-color: $all_background_color;
+    position: relative;
+    overflow: hidden;
+
+    .swiper-wrapper {
+      @include flexSet(row, space-between, center);
+      width: 540px;
+      height: 40px;
+      padding-left: 18px;
+      margin: 20px auto;
+      .menu,
+      .menu-2 {
+        text-decoration: none;
+        font-size: 14px;
+        color: $product-menu-button-text-color;
+        padding: 10px 14px;
+        background-color: $product-menu-button-background-color;
+        border-radius: 20px;
+      }
+
+      .menu {
+        width: 54px;
+        height: 40px;
+      }
+
+      .menu-2 {
+        width: 80px;
+        height: 40px;
+      }
+    }
+  }
+}

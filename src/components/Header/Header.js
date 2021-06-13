@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 class Header extends React.Component {
@@ -15,9 +16,9 @@ class Header extends React.Component {
         <div className="header-container">
           <div className="logo-contatiner">
             <button className="logo-button">
-              <a herf="#" className="logo-link">
+              <Link to="/" className="logo-link">
                 <img className="logo" src="/images/logo3.png" alt="logo" />
-              </a>
+              </Link>
             </button>
           </div>
           <img src="/icon/Search.svg" alt="search_icon" />
@@ -25,19 +26,19 @@ class Header extends React.Component {
         <div className="header-top-menu">
           <ul className="header-top-menu-list">
             <li>
-              <a href="#" className="menu-link">
+              <Link to="/" className="menu-link">
                 쿠캣추천
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="menu-link">
+              <Link to="/" className="menu-link">
                 베스트
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="menu-link">
+              <Link to="/" className="menu-link">
                 런칭특가
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
