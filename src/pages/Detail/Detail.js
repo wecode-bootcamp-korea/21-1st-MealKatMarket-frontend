@@ -9,8 +9,9 @@ class Detail extends React.Component {
     super();
     this.mainTab = React.createRef();
     this.state = {
-      modal: false,
       productInfo: [],
+      modal: false,
+      isClicked: true,
       isVisible: true,
     };
   }
@@ -45,8 +46,18 @@ class Detail extends React.Component {
     });
   };
 
+  toggleClicked = () => {
+    this.setState({
+      isClicked: !this.state.isClicked,
+    });
+  };
+
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
-    const { isVisible, modal, productInfo } = this.state;
+    const { isClicked, isVisible, modal, productInfo } = this.state;
 
     if (modal) {
       document.body.classList.add('active-modal');
@@ -76,18 +87,28 @@ class Detail extends React.Component {
                 >
                   <section className="left-icon-container">
                     <span>
-                      <img alt="backward" src="/icon/LeftArrow.svg" />
+                      <img
+                        alt="backward"
+                        src="/icon/LeftArrow.svg"
+                        onClick={this.goBack}
+                      />
                     </span>
                   </section>
                   <section className="right-icon-container">
                     <span>
-                      <img alt="search" src="/icon/Search.svg" />
+                      <Link to="/search">
+                        <img alt="search" src="/icon/Search.svg" />
+                      </Link>
                     </span>
                     <span>
-                      <img alt="home" src="/icon/Home.svg" />
+                      <Link to="/">
+                        <img alt="home" src="/icon/Home.svg" />
+                      </Link>
                     </span>
                     <span>
-                      <img alt="cart" src="/icon/Buy.svg" />
+                      <Link to="/cart">
+                        <img alt="cart" src="/icon/Buy.svg" />
+                      </Link>
                     </span>
                   </section>
                 </header>
@@ -130,8 +151,24 @@ class Detail extends React.Component {
                 >
                   <section className="product-tab">
                     <ul>
-                      <li>상품정보</li>
-                      <li>후기</li>
+                      {isClicked ? (
+                        <li class="clicked" onClick={this.toggleClicked}>
+                          상품정보
+                        </li>
+                      ) : (
+                        <li class onClick={this.toggleClicked}>
+                          상품정보
+                        </li>
+                      )}
+                      {!isClicked ? (
+                        <li class="clicked" onClick={this.toggleClicked}>
+                          후기
+                        </li>
+                      ) : (
+                        <li class onClick={this.toggleClicked}>
+                          후기
+                        </li>
+                      )}
                     </ul>
                   </section>
                   <section className="product-main-image-container">

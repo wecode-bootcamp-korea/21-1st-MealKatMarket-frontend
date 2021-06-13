@@ -26,6 +26,7 @@
         > span > img {
           width: 25px;
           height: 25px;
+          cursor: pointer;
         }
       }
 
@@ -145,6 +146,10 @@
           li {
             height: 100%;
             @include flexSet(row, center, center);
+            cursor: pointer;
+          }
+
+          .clicked {
             border-bottom: 2px solid $detail_tab_border_bottom_color;
             color: $detail_tab_text_color;
             font-weight: 700;
