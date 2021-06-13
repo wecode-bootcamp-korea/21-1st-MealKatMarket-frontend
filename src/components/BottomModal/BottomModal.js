@@ -21,17 +21,35 @@ class BottomModal extends React.Component {
   };
 
   clickItems = e => {
-    const { selectedItems } = this.state;
+    const { isSelected, isRequired, selectedItems } = this.state;
     const {
       target: {
         dataset: { name, price },
       },
     } = e;
+
+    if (isRequired || isSelected) {
+      this.setState({ isRequired: false, isSelected: false });
+    }
+
+    const obj = {
+      id: selectedItems.length,
+      name,
+      price,
+      quantity: 1,
+    };
+    const addItemToSelectedItems = selectedItems.concat(obj);
+    this.setState({ selectedItems: addItemToSelectedItems });
+  };
+
+  countQuantity = idx => {
+    const { selectedItems } = this.state;
+    console.log(selectedItems[idx]);
   };
 
   render() {
     const { isRequired, isSelected, selectedItems } = this.state;
-    const { toggleModal } = this.props;
+    const { requireOption, selectOption, toggleModal } = this.props;
 
     return (
       <div className="outer">
@@ -57,15 +75,23 @@ class BottomModal extends React.Component {
               </button>
               {isRequired && (
                 <ul className="required-option-list selected">
-                  {/* fetch시 map으로 돌릴 예정 */}
-                  <li
-                    className="required-option-item"
-                    data-price="3000"
-                    data-name="도시락1"
-                    onClick={this.clickItems}
-                  >
-                    도시락1
-                  </li>
+                  {requireOption &&
+                    requireOption.map(value => {
+                      return (
+                        <li
+                          className="required-option-item"
+                          data-price={value.option_price}
+                          data-name={value.option_name}
+                          onClick={this.clickItems}
+                        >
+                          {value.option_name} (
+                          {value.option_price
+                            .toString()
+                            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                          원)
+                        </li>
+                      );
+                    })}
                 </ul>
               )}
             </section>
@@ -81,34 +107,67 @@ class BottomModal extends React.Component {
               </button>
               {isSelected && (
                 <ul className="selected-option-list selected">
-                  {/* fetch시 map으로 돌릴 예정 */}
-                  <li className="selected-option-item">기타1</li>
+                  {selectOption &&
+                    selectOption.map(value => {
+                      return (
+                        <li
+                          className="selected-option-item"
+                          data-price={value.option_price}
+                          data-name={value.option_name}
+                          onClick={this.clickItems}
+                        >
+                          {value.option_name} (
+                          {value.option_price
+                            .toString()
+                            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                          원)
+                        </li>
+                      );
+                    })}
                 </ul>
               )}
             </section>
-            {selectedItems.length > 0 && (
-              <section className="added-option">
-                <section className="title-container">
-                  <p className="option-title">화덕 연어스테이크</p>
-                  <img alt="close" src="/icon/close.svg" />
-                </section>
-                <section className="quantity-container">
-                  <section className="quantity-counter">
-                    <button className="quantity-minus">-</button>
-                    <input
-                      type="text"
-                      class="quantity-count"
-                      data-count="1"
-                      value="1"
-                    />
-                    <button className="quantity-plus">+</button>
+            {selectedItems.length > 0 &&
+              selectedItems.map((data, index) => {
+                return (
+                  <section className="added-option">
+                    <section className="title-container">
+                      <p className="option-title">{data.name}</p>
+                      <img alt="close" src="/icon/close.svg" />
+                    </section>
+                    <section className="quantity-container">
+                      <section className="quantity-counter">
+                        <button
+                          className="quantity-minus"
+                          onClick={() => this.countQuantity(index)}
+                        >
+                          -
+                        </button>
+                        <input
+                          type="text"
+                          class="quantity-count"
+                          data-count="1"
+                          defaultValue={data.quantity}
+                        />
+                        <button
+                          className="quantity-plus"
+                          onClick={() => this.countQuantity(index)}
+                        >
+                          +
+                        </button>
+                      </section>
+                      <section className="quantity-price">
+                        <p>
+                          {data.price
+                            .toString()
+                            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
+                          원
+                        </p>
+                      </section>
+                    </section>
                   </section>
-                  <section className="quantity-price">
-                    <p>9,500원</p>
-                  </section>
-                </section>
-              </section>
-            )}
+                );
+              })}
           </section>
           <div className="divide-line"></div>
           <section className="purchase-total">
