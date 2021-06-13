@@ -20,7 +20,7 @@ class Modal extends React.Component {
             <img src="/icon/close.svg" alt="close-icon"></img>
           </button>
           <span>로그인이 필요한 서비스입니다.</span>
-          <Link to="http://localhost:3000/login">
+          <Link to="/login">
             <button className="login-button">로그인하기</button>
           </Link>
         </div>

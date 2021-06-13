@@ -2,6 +2,7 @@ import React from 'react';
 import './Bargain.scss';
 import { Link } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal';
+import Timer from '../../components/Timer/Timer';
 
 class Bargain extends React.Component {
   constructor(props) {
@@ -35,8 +36,7 @@ class Bargain extends React.Component {
             <div className="image-wrapper">
               <img src="/images/닭갈비.png" alt="food" />
               <div className="bargain-now-timer">
-                <span>특가할인 종료까지 </span>
-                <span className="time">00:00:00</span>
+                <Timer />
               </div>
             </div>
             <div className="bargain-info">
