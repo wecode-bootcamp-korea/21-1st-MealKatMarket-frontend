@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "모슬포항에서 갓 잡은 고등어",
+    "price": 18000,
+    "discount": "15%",
+    "discounted_price": 15300,
+    "star_score": "4.5",
+    "review_count": 3
+  },
+  {
+    "id": 2,
+    "name": "모처럼 만든 간장게장",
+    "price": 38000,
+    "discount": "10%",
+    "discounted_price": 34200,
+    "star_score": "4.5",
+    "review_count": 3
+  },
+  {
+    "id": 3,
+    "name": "모슬포항에서 잡은 오징어",
+    "price": 15000,
+    "discount": "10%",
+    "discounted_price": 13500,
+    "star_score": "4.5",
+    "review_count": 3
+  },
+  {
+    "id": 4,
+    "name": "제주도 차밭에서 방금 딴 말차잎",
+    "price": 20000,
+    "discount": "10%",
+    "discounted_price": 18000,
+    "star_score": "4.5",
+    "review_count": 3
+  }
+]
