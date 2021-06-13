@@ -1,4 +1,6 @@
 $all_background_color: #ffffff;
+$all_background_color: #ffffff;
+$all_white_color: #ffffff;
 $header_font_color: #45433f;
 $header_search_icon_color: #45433f;
 $header_underline_color: #eb5402;
@@ -47,6 +49,15 @@ $favorite_text_color: #5b5752;
 $favorite_login_button_color: #f55b04;
 $favorite_login_text_color: #ffffff;
 $favorite_join_text_color: #9d9995;
+$product-menu-button-background-color: #f9f9f9;
+$product-menu-button-text-color: #46433f;
+$product-menu-button-clicked-background-color: #45433f;
+$product-menu-button-clicked-text-color: #ffffff;
+$product-card-text-color: #46433f;
+$product-card-before-price-color: #bbb8b5;
+$prodcut-card-discount-percentage-color: #f55b04;
+$product-card-review-color: #bbb8b5;
+$product-card-new-status-background-color: #f55b04;
 
 @mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
   display: flex;
