@@ -79,12 +79,11 @@ class BottomModal extends React.Component {
                       <li
                         key={index}
                         className="trigger"
-                        data-price={value.option_price}
-                        data-name={value.option_name}
+                        data-price={value.price}
+                        data-name={value.name}
                         onClick={this.clickItems}
                       >
-                        {value.option_name} (
-                        {value.option_price.toLocaleString()}
+                        {value.name} ({value.price.toLocaleString()}
                         원)
                       </li>
                     );
@@ -109,12 +108,11 @@ class BottomModal extends React.Component {
                       <li
                         key={index}
                         className="trigger"
-                        data-price={value.option_price}
-                        data-name={value.option_name}
+                        data-price={value.price}
+                        data-name={value.name}
                         onClick={this.clickItems}
                       >
-                        {value.option_name} (
-                        {value.option_price.toLocaleString()}
+                        {value.name} ({value.price.toLocaleString()}
                         원)
                       </li>
                     );
