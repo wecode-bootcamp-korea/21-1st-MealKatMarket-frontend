@@ -164,30 +164,6 @@ class Register extends React.Component {
                   : '번호를 입력해주세요'}
               </span>
             </section>
-            <section className="checkbox-container">
-              <section>
-                <input
-                  type="checkbox"
-                  className="agree_all"
-                  value="agree_all"
-                />
-                <label htmlFor="agree_all">아래 내용에 전부 동의합니다.</label>
-              </section>
-              <section>
-                <input type="checkbox" className="agree_14" value="agree_14" />
-                <label htmlFor="agree_14">만 14세 이상입니다.</label>
-              </section>
-              <section>
-                <input type="checkbox" className="term_1" value="term_1" />
-                <label htmlFor="term_1">쿠켓마켓 이용약관에 동의합니다.</label>
-              </section>
-              <section>
-                <input type="checkbox" className="term_2" value="term_2" />
-                <label htmlFor="term_2">
-                  개인정보 수집 및 이용 동의합니다.
-                </label>
-              </section>
-            </section>
             {allValid ? (
               <input
                 type="submit"
