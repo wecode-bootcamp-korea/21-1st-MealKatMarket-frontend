@@ -1,0 +1,85 @@
+@import '../../styles/variables.scss';
+
+.productcard-wrapper {
+  @include flexSet(column, flex-start, flex-start);
+  width: 223px;
+  .detail-link,
+  .review-link {
+    text-decoration: none;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 223px;
+
+    .detail-link img {
+      position: relative;
+      width: 223px;
+      height: 223px;
+      border-radius: 10px;
+    }
+
+    .cart-link img {
+      z-index: 1;
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 36px;
+    }
+  }
+
+  .info-wrapper {
+    width: 223px;
+    .name {
+      margin: 8px 0px 4px;
+      font-size: 12px;
+      line-height: 16px;
+      color: $product-card-text-color;
+    }
+    .before-price {
+      font-size: 12px;
+      color: $product-card-before-price-color;
+      text-decoration: line-through;
+    }
+
+    .price-line {
+      padding-top: 6px;
+      padding-bottom: 8px;
+      .discount {
+        padding-right: 7px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $prodcut-card-discount-percentage-color;
+      }
+      .non {
+        padding: 0px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $prodcut-card-discount-percentage-color;
+      }
+      .now-price {
+        margin-right: 1px;
+        font-weight: 700;
+        color: $product-card-text-color;
+      }
+
+      .won {
+        margin-left: 1px;
+        padding-bottom: 8px;
+        color: $product-card-text-color;
+      }
+    }
+  }
+  .review-link {
+    @include flexSet(row, flex-start, center);
+
+    img {
+      width: 12px;
+    }
+    span {
+      margin: 1px 0px 0px 5px;
+      font-size: 11px;
+      color: $product-card-review-color;
+    }
+  }
+}
