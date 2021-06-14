@@ -24,7 +24,7 @@
       font-weight: 600;
       color: $bottomnav_font_color;
 
-      a {
+      .icon-link {
         @include flexSet(column, center, center);
         height: 65px;
         width: 125px;

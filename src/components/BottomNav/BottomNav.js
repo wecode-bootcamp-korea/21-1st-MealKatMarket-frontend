@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './BottomNav.scss';
 
 class BottomNav extends React.Component {
@@ -8,28 +9,28 @@ class BottomNav extends React.Component {
         <div className="background">
           <ul className="list-wrapper">
             <li>
-              <a href="#">
-                <img src="/icon/Home.svg" />
+              <Link to="/" className="icon-link">
+                <img src="/icon/Home.svg" alt="home-icon" />
                 <span>홈</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
-                <img src="/icon/Buy.svg" />
+              <Link to="/" className="icon-link">
+                <img src="/icon/Buy.svg" alt="cart-icon" />
                 <span>카트</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
-                <img src="/icon/heart.svg" />
+              <Link to="/" className="icon-link">
+                <img src="/icon/heart.svg" alt="heart-icon" />
                 <span>관심상품</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
-                <img src="/icon/Profile.svg" />
+              <Link to="/" className="icon-link">
+                <img src="/icon/Profile.svg" alt="profile-icon" />
                 <span>마이밀캣</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,9 +1,7 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchList from '../../components/SearchList/SearchList';
 import './Search.scss';
-
-const { inputValue, searchedData } = this.state;
 
 const RECOMMEND_KEYWORD = [
   '곰표떡볶이',
@@ -79,6 +77,7 @@ class Search extends React.Component {
   };
 
   render() {
+    const { inputValue, searchedData } = this.state;
     return (
       <div className="search">
         <div className="background">

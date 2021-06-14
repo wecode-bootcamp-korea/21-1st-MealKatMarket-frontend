@@ -1,0 +1,17 @@
+@import '../../styles/variables.scss';
+
+.timer-container {
+  @include flexSet(row, center, center);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 14px;
+
+  .time {
+    font-weight: 600;
+    margin-left: 10px;
+    letter-spacing: 0.6px;
+  }
+}

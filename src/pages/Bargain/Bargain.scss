@@ -1,0 +1,198 @@
+@import '../../styles/variables.scss';
+
+.bargain-container {
+  @include flexSet(column, center, center);
+  background-color: $outer_background_color;
+
+  .background {
+    width: 500px;
+    background-color: $all_background_color;
+    position: relative;
+
+    .banner-wrapper {
+      img {
+        height: 200px;
+      }
+    }
+
+    .bargain-now-wrapper {
+      @include flexSet(column, center, center);
+      margin-top: 26px;
+
+      .image-wrapper {
+        position: relative;
+
+        .bargain-now-timer {
+          @include flexSet(row, center, center);
+          position: absolute;
+          top: 10px;
+          left: 10px;
+        }
+
+        img {
+          width: 444px;
+          border-radius: 10px;
+        }
+      }
+
+      .bargain-info {
+        padding: 24px 36px 40px;
+        width: 100%;
+
+        span {
+          color: $bargain_text_color;
+          margin-right: 10px;
+          font-size: 30px;
+          font-weight: 600;
+        }
+
+        p {
+          color: $bargain_text_color;
+          font-size: 16px;
+          margin-top: 14px;
+          line-height: 24px;
+        }
+
+        .percent {
+          color: $bargain_percent_color;
+        }
+        .now-price {
+          margin-right: 2px;
+        }
+
+        .won {
+          font-size: 25px;
+        }
+        .before-price {
+          text-decoration: line-through;
+          color: $bargain_before_price_text_color;
+          font-size: 20px;
+          font-weight: 400;
+        }
+
+        button {
+          margin-top: 32px;
+          width: 425px;
+          height: 50px;
+          border: none;
+          border-radius: 8px;
+          font-size: 16px;
+          background-color: $bargain_button_color;
+          color: white;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .blank {
+      width: 500px;
+      height: 12px;
+      background-color: $all_blank_background_color;
+    }
+
+    .bargain-next-wrapper {
+      margin: 0px 28px;
+      padding: 24px 0px;
+
+      .next-title {
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: 600;
+        color: $bargain_text_color;
+      }
+
+      .detail-text {
+        font-size: 14px;
+        color: $bargain_detail_text_color;
+      }
+
+      .next-bargain-image {
+        @include flexSet(column, center, center);
+        text-decoration: none;
+        position: relative;
+        margin: 24px 0px;
+
+        .pizza-image {
+          width: 444px;
+          height: 275px;
+          border-radius: 10px;
+        }
+
+        .color-overlay {
+          position: absolute;
+          border-radius: 10px;
+          top: 0;
+          left: 0;
+          width: 444px;
+          height: 275px;
+          background-color: black;
+          opacity: 0.3;
+        }
+
+        .open-time {
+          position: absolute;
+          width: 444px;
+          top: 40%;
+          font-size: 22px;
+          font-weight: 600;
+          text-align: center;
+          line-height: 1.4;
+          color: $all_white_color;
+        }
+      }
+
+      .bargain-info {
+        span {
+          color: $bargain_text_color;
+          margin-right: 10px;
+          font-size: 22px;
+          font-weight: 600;
+        }
+
+        p {
+          color: $bargain_text_color;
+          font-size: 15px;
+          margin-top: 14px;
+          line-height: 24px;
+        }
+
+        .percent {
+          color: $bargain_percent_color;
+        }
+
+        .before-price {
+          text-decoration: line-through;
+          color: $bargain_before_price_text_color;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .open-link {
+          text-decoration: none;
+          button {
+            @include flexSet(row, center, center);
+            margin-top: 24px;
+            width: 425px;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            border: 1px solid $bargain_button_color;
+            background-color: $all_white_color;
+            color: $bargain_button_color;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            img {
+              margin-right: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
