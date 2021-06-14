@@ -30,9 +30,7 @@ class Routes extends React.Component {
           <Route exact path="/bargain" component={Bargain} />
           <Route exact path="/timer" component={Timer} />
           <Route exact path="/favorite" component={Favorite} />
-<<<<<<< HEAD
           <Route exact path="/detail" component={Detail} />
-=======
           <Route
             exact
             path="/favoritehorizontalcard"
@@ -43,7 +41,6 @@ class Routes extends React.Component {
             path="/favoriteverticalcard"
             component={FavoriteVerticalCard}
           />
->>>>>>> master
         </Switch>
       </Router>
     );

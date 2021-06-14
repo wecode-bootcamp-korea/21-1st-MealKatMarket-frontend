@@ -10,7 +10,7 @@ class Detail extends React.Component {
     this.mainTab = React.createRef();
     this.state = {
       productInfo: [],
-      modal: false,
+      isModalOn: false,
       isClicked: true,
       isVisible: true,
     };
@@ -33,16 +33,16 @@ class Detail extends React.Component {
     const headerHeight = window.pageYOffset;
     const mainTabHeight = this.mainTab.current.offsetTop;
 
-    if (headerHeight > mainTabHeight - 60) {
+    if (headerHeight > mainTabHeight - 60 && this.state.isVisible) {
       this.setState({ isVisible: false });
-    } else if (headerHeight < mainTabHeight - 60) {
+    } else if (headerHeight < mainTabHeight - 60 && !this.state.isVisible) {
       this.setState({ isVisible: true });
     }
   };
 
   toggleModal = () => {
     this.setState({
-      modal: !this.state.modal,
+      isModalOn: !this.state.isModalOn,
     });
   };
 
@@ -57,9 +57,9 @@ class Detail extends React.Component {
   };
 
   render() {
-    const { isClicked, isVisible, modal, productInfo } = this.state;
+    const { isClicked, isVisible, isModalOn, productInfo } = this.state;
 
-    if (modal) {
+    if (isModalOn) {
       document.body.classList.add('active-modal');
     } else {
       document.body.classList.remove('active-modal');
@@ -68,10 +68,10 @@ class Detail extends React.Component {
     return (
       <main className="detail">
         {productInfo &&
-          productInfo.map(data => {
+          productInfo.map((data, index) => {
             return (
-              <section className="detail-container">
-                {modal && (
+              <section key={index} className="detail-container">
+                {isModalOn && (
                   <BottomModal
                     toggleModal={this.toggleModal}
                     requireOption={data.required_options}

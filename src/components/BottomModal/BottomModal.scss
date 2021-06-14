@@ -44,17 +44,13 @@
         border: 1px solid $bottomModal_option_selected_border;
       }
 
-      .required-title,
-      .selected-title {
+      .title {
         padding: 10px 0;
         font-size: 10px;
         color: $bottomModal_option_title_color;
       }
 
-      .required-trigger,
-      .selected-trigger,
-      .required-option-item,
-      .selected-option-item {
+      .trigger {
         all: unset;
         width: 450px;
         height: 30px;

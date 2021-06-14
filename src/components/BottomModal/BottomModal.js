@@ -32,19 +32,18 @@ class BottomModal extends React.Component {
       this.setState({ isRequired: false, isSelected: false });
     }
 
-    const obj = {
+    const selectedItemObj = {
       id: selectedItems.length,
       name,
       price,
       quantity: 1,
     };
-    const addItemToSelectedItems = selectedItems.concat(obj);
-    this.setState({ selectedItems: addItemToSelectedItems });
+    const newSelectedItems = selectedItems.concat(selectedItemObj);
+    this.setState({ selectedItems: newSelectedItems });
   };
 
   countQuantity = idx => {
     const { selectedItems } = this.state;
-    console.log(selectedItems[idx]);
   };
 
   render() {
@@ -64,66 +63,60 @@ class BottomModal extends React.Component {
           </section>
           <section className="modal-option">
             <section className="required-option">
-              <p className="required-title">필수옵션</p>
+              <p className="title">필수옵션</p>
               <button
-                className="required-trigger"
+                className="trigger"
                 name="isRequired"
-                onClick={e => this.handleToggleClick(e)}
+                onClick={this.handleToggleClick}
               >
                 <span>[필수] 옵션을 선택해주세요</span>
                 <img alt="append" src="/icon/UnderArrow.svg" />
               </button>
               {isRequired && (
                 <ul className="required-option-list selected">
-                  {requireOption &&
-                    requireOption.map(value => {
-                      return (
-                        <li
-                          className="required-option-item"
-                          data-price={value.option_price}
-                          data-name={value.option_name}
-                          onClick={this.clickItems}
-                        >
-                          {value.option_name} (
-                          {value.option_price
-                            .toString()
-                            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-                          원)
-                        </li>
-                      );
-                    })}
+                  {requireOption.map(value => {
+                    return (
+                      <li
+                        className="trigger"
+                        data-price={value.option_price}
+                        data-name={value.option_name}
+                        onClick={this.clickItems}
+                      >
+                        {value.option_name} (
+                        {value.option_price.toLocaleString('kr')}
+                        원)
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </section>
             <section className="selected-option">
-              <p className="selected-title">선택옵션</p>
+              <p className="title">선택옵션</p>
               <button
-                className="selected-trigger"
+                className="trigger"
                 name="isSelected"
-                onClick={e => this.handleToggleClick(e)}
+                onClick={this.handleToggleClick}
               >
                 <span>[선택] 옵션을 선택해주세요</span>
                 <img alt="append" src="/icon/UnderArrow.svg" />
               </button>
               {isSelected && (
                 <ul className="selected-option-list selected">
-                  {selectOption &&
-                    selectOption.map(value => {
-                      return (
-                        <li
-                          className="selected-option-item"
-                          data-price={value.option_price}
-                          data-name={value.option_name}
-                          onClick={this.clickItems}
-                        >
-                          {value.option_name} (
-                          {value.option_price
-                            .toString()
-                            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-                          원)
-                        </li>
-                      );
-                    })}
+                  {selectOption.map(value => {
+                    return (
+                      <li
+                        className="trigger"
+                        data-price={value.option_price}
+                        data-name={value.option_name}
+                        onClick={this.clickItems}
+                      >
+                        {value.option_name} (
+                        {value.option_price.toLocaleString('kr')}
+                        원)
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </section>
@@ -157,12 +150,7 @@ class BottomModal extends React.Component {
                         </button>
                       </section>
                       <section className="quantity-price">
-                        <p>
-                          {data.price
-                            .toString()
-                            .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}
-                          원
-                        </p>
+                        <p>{data.price.toLocaleString('kr')}원</p>
                       </section>
                     </section>
                   </section>
