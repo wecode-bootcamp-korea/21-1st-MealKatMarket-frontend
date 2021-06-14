@@ -87,11 +87,11 @@ class Register extends React.Component {
       <div className="register-container">
         <header>
           <span className="back-arrow">
-            <img alt="backward" src="/images/LeftArrow.svg" />
+            <img alt="backward" src="/icon/LeftArrow.svg" />
           </span>
           <span className="register-title">회원가입</span>
           <span className="home-icon">
-            <img alt="home" src="/images/home_orange.svg" />
+            <img alt="home" src="/icon/home_orange.svg" />
           </span>
         </header>
         <main>
