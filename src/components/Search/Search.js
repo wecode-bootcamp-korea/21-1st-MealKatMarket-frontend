@@ -16,13 +16,13 @@ class Search extends React.Component {
         <div className="background">
           <section className="search-bar-container">
             <section className="back-arrow">
-              <img alt="back arrow" src="/images/LeftArrow.svg" />
+              <img alt="back arrow" src="/icon/LeftArrow.svg" />
             </section>
             <p className="search-title">무엇을 찾고 계신가요?</p>
             <div className="search-input-container">
               <input type="text" className="search-input" />
               <span>
-                <img alt="search" src="/images/search.svg" />
+                <img alt="search" src="/icon/search.svg" />
               </span>
             </div>
           </section>

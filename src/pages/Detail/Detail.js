@@ -59,6 +59,7 @@ class Detail extends React.Component {
   render() {
     const { isClicked, isVisible, isModalOn, productInfo } = this.state;
 
+    console.log('render');
     if (isModalOn) {
       document.body.classList.add('active-modal');
     } else {

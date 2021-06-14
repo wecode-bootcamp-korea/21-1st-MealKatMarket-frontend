@@ -15,6 +15,7 @@ class BottomModal extends React.Component {
     const {
       target: { name },
     } = e;
+
     this.setState({
       [name]: !this.state[name],
     });
@@ -74,9 +75,10 @@ class BottomModal extends React.Component {
               </button>
               {isRequired && (
                 <ul className="required-option-list selected">
-                  {requireOption.map(value => {
+                  {requireOption.map((value, index) => {
                     return (
                       <li
+                        key={index}
                         className="trigger"
                         data-price={value.option_price}
                         data-name={value.option_name}
@@ -103,9 +105,10 @@ class BottomModal extends React.Component {
               </button>
               {isSelected && (
                 <ul className="selected-option-list selected">
-                  {selectOption.map(value => {
+                  {selectOption.map((value, index) => {
                     return (
                       <li
+                        key={index}
                         className="trigger"
                         data-price={value.option_price}
                         data-name={value.option_name}
