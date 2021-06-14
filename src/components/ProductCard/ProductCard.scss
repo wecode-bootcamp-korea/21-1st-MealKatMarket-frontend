@@ -1,0 +1,114 @@
+@import '../../styles/variables.scss';
+
+.productcard-wrapper {
+  @include flexSet(column, center, center);
+  background-color: $outer_background_color;
+  height: 100vh;
+
+  .background {
+    width: 223px;
+    margin-bottom: 24px;
+    background-color: $all_background_color;
+    position: relative;
+
+    .detail-link,
+    .review-link {
+      text-decoration: none;
+    }
+
+    .image-wrapper {
+      position: relative;
+
+      .detail-link img {
+        position: relative;
+        width: 223px;
+        height: 223px;
+        border-radius: 10px;
+      }
+
+      .cart-link img {
+        z-index: 1;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        width: 36px;
+      }
+
+      span {
+        position: absolute;
+        margin-left: 5px;
+        top: 10px;
+        padding: 4px 4px;
+        height: 18px;
+        letter-spacing: 0.2px;
+
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 11px;
+
+        z-index: 1;
+      }
+
+      .new {
+        left: 45px;
+        color: $product-card-text-color;
+        background-color: $all_white_color;
+      }
+
+      .sale {
+        left: 5px;
+        color: $all_white_color;
+        background-color: $product-card-new-status-background-color;
+      }
+    }
+
+    .info-wrapper {
+      .name {
+        margin: 8px 0px 4px;
+        font-size: 12px;
+        line-height: 16px;
+        color: $product-card-text-color;
+      }
+      .before-price {
+        padding-bottom: 8px;
+        font-size: 12px;
+        color: $product-card-before-price-color;
+        text-decoration: line-through;
+      }
+
+      .price-line {
+        padding-bottom: 8px;
+        .percent {
+          padding-bottom: 8px;
+          font-size: 16px;
+          font-weight: 700;
+          color: $prodcut-card-discount-percentage-color;
+        }
+        .now-price {
+          padding-bottom: 8px;
+          margin-left: 6px;
+          font-weight: 700;
+          color: $product-card-text-color;
+        }
+
+        .won {
+          margin-left: 1px;
+          padding-bottom: 8px;
+          color: $product-card-text-color;
+        }
+      }
+    }
+    .review-link {
+      @include flexSet(row, flex-start, center);
+
+      img {
+        width: 12px;
+      }
+      span {
+        margin: 1px 0px 0px 5px;
+        font-size: 11px;
+        color: $product-card-review-color;
+      }
+    }
+  }
+}
