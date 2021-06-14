@@ -2,8 +2,9 @@
 
 .footer-container {
   width: 440px;
-  padding: 0 20px;
-  @include flexSet(column, center, flex-start);
+  padding: 0 20px 60px 20px;
+  @include flexSet(column, flex-start, flex-start);
+
   .footer-title {
     margin: 20px 0;
     color: $footer_title_text_color;
