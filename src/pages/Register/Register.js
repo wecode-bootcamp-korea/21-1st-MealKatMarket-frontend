@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Register.scss';
 
 class Register extends React.Component {
@@ -76,6 +77,10 @@ class Register extends React.Component {
     e.preventDefault();
   };
 
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     const allValid =
       this.validateEmail() &&
@@ -87,11 +92,17 @@ class Register extends React.Component {
       <div className="register-container">
         <header>
           <span className="back-arrow">
-            <img alt="backward" src="/images/LeftArrow.svg" />
+            <img
+              alt="backward"
+              src="/icon/LeftArrow.svg"
+              onClick={this.goBack}
+            />
           </span>
           <span className="register-title">회원가입</span>
           <span className="home-icon">
-            <img alt="home" src="/images/home_orange.svg" />
+            <Link to="/">
+              <img alt="home" src="/icon/home_orange.svg" />
+            </Link>
           </span>
         </header>
         <main>
