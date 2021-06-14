@@ -1,8 +1,18 @@
 import React, { createRef } from 'react';
 import { Link } from 'react-router-dom';
-import './Search.scss';
 import SearchList from '../../components/SearchList/SearchList';
+import './Search.scss';
 
+const { inputValue, searchedData } = this.state;
+
+const RECOMMEND_KEYWORD = [
+  '곰표떡볶이',
+  'LA갈비',
+  '육즙만두',
+  '감자탕',
+  '모슬포',
+];
+const POPULAR_KEYWORD = ['만두', '찹쌀떡', '치즈볼', '오징어', '모슬포'];
 class Search extends React.Component {
   constructor() {
     super();
@@ -25,21 +35,23 @@ class Search extends React.Component {
 
   searchByInput = () => {
     const { productData, inputValue } = this.state;
-    const filtered = productData.filter(data => data.name.includes(inputValue));
+    const filteredData = productData.filter(data =>
+      data.name.includes(inputValue)
+    );
 
-    !inputValue
-      ? this.setState({ searchedData: [] })
-      : this.setState({ searchedData: filtered });
+    this.setState({ searchedData: !inputValue ? [] : filteredData });
   };
 
   searchByKeyword = keyword => {
     const { productData } = this.state;
-    const filtered = productData.filter(data => data.name.includes(keyword));
+    const filteredData = productData.filter(data =>
+      data.name.includes(keyword)
+    );
 
-    this.setState({ searchedData: filtered });
+    this.setState({ searchedData: filteredData });
   };
 
-  handleClickCross = e => {
+  handleClickCross = () => {
     this.setState({
       inputValue: '',
     });
@@ -62,24 +74,11 @@ class Search extends React.Component {
       {
         inputValue: value,
       },
-      () => {
-        this.searchByInput();
-      }
+      this.searchByInput()
     );
   };
 
   render() {
-    const { inputValue, searchedData } = this.state;
-
-    const RECOMMEND_KEYWORD = [
-      '곰표떡볶이',
-      'LA갈비',
-      '육즙만두',
-      '감자탕',
-      '모슬포',
-    ];
-    const POPULAR_KEYWORD = ['만두', '찹쌀떡', '치즈볼', '오징어', '모슬포'];
-
     return (
       <div className="search">
         <div className="background">
