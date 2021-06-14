@@ -11,11 +11,7 @@ class BottomModal extends React.Component {
     };
   }
 
-  handleToggleClick = e => {
-    const {
-      target: { name },
-    } = e;
-
+  handleToggleClick = name => {
     this.setState({
       [name]: !this.state[name],
     });
@@ -67,11 +63,14 @@ class BottomModal extends React.Component {
               <p className="title">필수옵션</p>
               <button
                 className="trigger"
-                name="isRequired"
-                onClick={this.handleToggleClick}
+                onClick={() => this.handleToggleClick('isRequired')}
               >
-                <span>[필수] 옵션을 선택해주세요</span>
-                <img alt="append" src="/icon/UnderArrow.svg" />
+                <span name="isRequired">[필수] 옵션을 선택해주세요</span>
+                <img
+                  alt="append"
+                  src="/icon/UnderArrow.svg"
+                  name="isRequired"
+                />
               </button>
               {isRequired && (
                 <ul className="required-option-list selected">
@@ -85,7 +84,7 @@ class BottomModal extends React.Component {
                         onClick={this.clickItems}
                       >
                         {value.option_name} (
-                        {value.option_price.toLocaleString('kr')}
+                        {value.option_price.toLocaleString()}
                         원)
                       </li>
                     );
@@ -98,7 +97,7 @@ class BottomModal extends React.Component {
               <button
                 className="trigger"
                 name="isSelected"
-                onClick={this.handleToggleClick}
+                onClick={() => this.handleToggleClick('isSelected')}
               >
                 <span>[선택] 옵션을 선택해주세요</span>
                 <img alt="append" src="/icon/UnderArrow.svg" />
@@ -115,7 +114,7 @@ class BottomModal extends React.Component {
                         onClick={this.clickItems}
                       >
                         {value.option_name} (
-                        {value.option_price.toLocaleString('kr')}
+                        {value.option_price.toLocaleString()}
                         원)
                       </li>
                     );
@@ -153,7 +152,7 @@ class BottomModal extends React.Component {
                         </button>
                       </section>
                       <section className="quantity-price">
-                        <p>{data.price.toLocaleString('kr')}원</p>
+                        <p>{data.price.toLocaleString()}원</p>
                       </section>
                     </section>
                   </section>
