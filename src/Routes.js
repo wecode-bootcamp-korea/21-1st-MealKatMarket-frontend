@@ -6,7 +6,7 @@ import Main from './pages/Main/Main';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Product from './pages/Product/Product';
-import ProductCard from './components/ProductCard/ProductCard';
+import Card from './components/ProductCard/Card';
 import BottomNav from './components/BottomNav/BottomNav';
 import Bargain from './pages/Bargain/Bargain';
 import Timer from './components/Timer/Timer';
@@ -25,7 +25,7 @@ class Routes extends React.Component {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/product" component={Product} />
-          <Route exact path="/productcard" component={ProductCard} />
+          <Route exact path="/productcard" component={Card} />
           <Route exact path="/bottomnav" component={BottomNav} />
           <Route exact path="/bargain" component={Bargain} />
           <Route exact path="/timer" component={Timer} />
