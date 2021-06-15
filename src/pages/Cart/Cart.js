@@ -3,17 +3,23 @@ import { Link } from 'react-router-dom';
 import './Cart.scss';
 
 class Cart extends React.Component {
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     return (
       <div className="cart-container">
         <div className="background">
           <header>
-            <span className="left-arrow">
-              <img alt="return back icon" src="/images/LeftArrow.svg" />
+            <span className="left-arrow" onClick={this.goBack}>
+              <img alt="return back icon" src="/icon/LeftArrow.svg" />
             </span>
             <span class="header-title">카트</span>
             <span className="home-icon">
-              <img alt="Home Icon" src="/images/Home_Black.svg" />
+              <Link to="/">
+                <img alt="Home Icon" src="/icon/Home_Black.svg" />
+              </Link>
             </span>
           </header>
           <section className="cart-banner">
@@ -24,7 +30,7 @@ class Cart extends React.Component {
               <button className="add-address-button">배송지 입력</button>
             </section>
             <section className="goods-empty">
-              <img alt="cart icon" src="/images/Buy_shadow.svg" />
+              <img alt="cart icon" src="/icon/Buy_shadow.svg" />
               <p>카트가 비어있어요</p>
               <Link className="add-cart" to="/">
                 채우러 가기

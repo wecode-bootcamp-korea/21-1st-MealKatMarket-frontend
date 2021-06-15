@@ -21,7 +21,9 @@ class Header extends React.Component {
               </Link>
             </button>
           </div>
-          <img src="/icon/Search.svg" alt="search_icon" />
+          <Link to="/search">
+            <img src="/icon/Search.svg" alt="search_icon" />
+          </Link>
         </div>
         <div className="header-top-menu">
           <ul className="header-top-menu-list">
@@ -36,7 +38,7 @@ class Header extends React.Component {
               </Link>
             </li>
             <li>
-              <Link to="/" className="menu-link">
+              <Link to="/bargain" className="menu-link">
                 런칭특가
               </Link>
             </li>

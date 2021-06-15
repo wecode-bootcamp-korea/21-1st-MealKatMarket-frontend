@@ -1,8 +1,8 @@
 @import '../../styles/variables.scss';
 
 .footer-container {
-  width: 440px;
-  padding: 0 20px 60px 20px;
+  width: 500px;
+  padding: 10px 18px 70px 18px;
   @include flexSet(column, flex-start, flex-start);
 
   .footer-title {
@@ -11,16 +11,16 @@
   }
 
   .divide-line {
-    width: 440px;
-    border: 1px solid $footer_divide_line_color;
+    width: 470px;
+    border-bottom: 1px solid $footer_divide_line_color;
   }
 
   .footer-content {
-    margin: 20px 0;
+    padding: 20px 0;
     font-size: 13px;
     > article {
       &:not(:first-child) {
-        margin-top: 10px;
+        margin-top: 12px;
       }
 
       > .title {

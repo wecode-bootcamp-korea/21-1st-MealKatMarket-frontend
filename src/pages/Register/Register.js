@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Register.scss';
 
 class Register extends React.Component {
@@ -76,6 +77,10 @@ class Register extends React.Component {
     e.preventDefault();
   };
 
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     const allValid =
       this.validateEmail() &&
@@ -87,11 +92,17 @@ class Register extends React.Component {
       <div className="register-container">
         <header>
           <span className="back-arrow">
-            <img alt="backward" src="/images/LeftArrow.svg" />
+            <img
+              alt="backward"
+              src="/icon/LeftArrow.svg"
+              onClick={this.goBack}
+            />
           </span>
           <span className="register-title">회원가입</span>
           <span className="home-icon">
-            <img alt="home" src="/images/home_orange.svg" />
+            <Link to="/">
+              <img alt="home" src="/icon/home_orange.svg" />
+            </Link>
           </span>
         </header>
         <main>
@@ -163,30 +174,6 @@ class Register extends React.Component {
                   ? '유효한 휴대전화 번호입니다'
                   : '번호를 입력해주세요'}
               </span>
-            </section>
-            <section className="checkbox-container">
-              <section>
-                <input
-                  type="checkbox"
-                  className="agree_all"
-                  value="agree_all"
-                />
-                <label htmlFor="agree_all">아래 내용에 전부 동의합니다.</label>
-              </section>
-              <section>
-                <input type="checkbox" className="agree_14" value="agree_14" />
-                <label htmlFor="agree_14">만 14세 이상입니다.</label>
-              </section>
-              <section>
-                <input type="checkbox" className="term_1" value="term_1" />
-                <label htmlFor="term_1">쿠켓마켓 이용약관에 동의합니다.</label>
-              </section>
-              <section>
-                <input type="checkbox" className="term_2" value="term_2" />
-                <label htmlFor="term_2">
-                  개인정보 수집 및 이용 동의합니다.
-                </label>
-              </section>
             </section>
             {allValid ? (
               <input

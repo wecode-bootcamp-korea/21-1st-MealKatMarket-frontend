@@ -1,9 +1,10 @@
 @import '../../styles/variables.scss';
 
 .bottom-container {
+  position: fixed;
+  bottom: 0;
   @include flexSet(column, center, center);
   background-color: $outer_background_color;
-  height: 100vh;
 
   .background {
     width: 500px;

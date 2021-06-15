@@ -3,6 +3,9 @@ import './Bargain.scss';
 import { Link } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal';
 import Timer from '../../components/Timer/Timer';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import BottomNav from '../../components/BottomNav/BottomNav';
 
 class Bargain extends React.Component {
   constructor(props) {
@@ -28,6 +31,7 @@ class Bargain extends React.Component {
     const { openModal } = this;
     return (
       <div className="bargain-container">
+        <Header />
         <div className="background">
           <div className="banner-wrapper">
             <img src="/images/bargain-banner.png" alt="banner" />
@@ -84,6 +88,8 @@ class Bargain extends React.Component {
             </div>
           </section>
         </div>
+        <BottomNav />
+        <Footer />
         {this.state.visible && <Modal closeModal={this.closeModal} />}
       </div>
     );
