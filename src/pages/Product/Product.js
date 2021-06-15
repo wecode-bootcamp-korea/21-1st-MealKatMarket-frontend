@@ -9,29 +9,24 @@ class Product extends React.Component {
 
     this.state = {
       showDropdown: false,
-      CARD_DATA: [],
+      cardData: [],
     };
-    this.showDropdown = this.showDropdown.bind(this);
   }
 
-  showDropdown() {
+  handleDropdown = () => {
     this.setState(prevState => ({
       showDropdown: !prevState.showDropdown,
     }));
-  }
-
-  componentDidUpdate() {
-    console.log(this.state.CARD_DATA.result);
-  }
+  };
 
   componentDidMount() {
-    fetch('http://10.58.7.47:8000/products', {
+    fetch('/products', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
         this.setState({
-          CARD_DATA: data,
+          cardData: data,
         });
       });
   }
@@ -77,7 +72,7 @@ class Product extends React.Component {
             </li>
           </ul>
           <div className="filter-button">
-            <button onClick={this.showDropdown}>
+            <button onClick={this.handleDropdown}>
               인기상품순
               <img src="/icon/swap.svg" alt="swap-icon" />
             </button>
@@ -102,8 +97,8 @@ class Product extends React.Component {
             )}
           </div>
           <ul className="product-list">
-            {this.state.CARD_DATA.result &&
-              this.state.CARD_DATA.result.map((card, idx) => (
+            {this.state.cardData.result &&
+              this.state.cardData.result.map((card, idx) => (
                 <Card key={idx} card={card} />
               ))}
           </ul>
