@@ -68,7 +68,7 @@
   .current-popular-goods-container {
     width: 440px;
     height: 200px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: $all_background_color;
 
     > p {
@@ -79,8 +79,6 @@
     }
 
     .goods-container {
-      margin-left: 20px;
-
       .detail-link img {
         position: relative;
         width: 30%;

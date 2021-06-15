@@ -65,7 +65,9 @@ class Cart extends React.Component {
         <section className="current-popular-goods-container">
           <p>실시간 베스트 상품</p>
           <section className="goods-container">
-            <RecommendCard recommendData={recommendData} />
+            {recommendData.length > 0 && (
+              <RecommendCard recommendData={recommendData} />
+            )}
           </section>
         </section>
         {currentItems.length > 0 && (
