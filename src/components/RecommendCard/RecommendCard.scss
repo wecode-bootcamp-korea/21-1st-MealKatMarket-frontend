@@ -51,13 +51,13 @@
         }
 
         .new {
-          left: 45px;
+          left: 40px;
           color: $product-card-text-color;
           background-color: $all_white_color;
         }
 
         .sale {
-          left: 5px;
+          left: 0;
           color: $all_white_color;
           background-color: $product-card-new-status-background-color;
         }
