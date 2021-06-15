@@ -1,20 +1,35 @@
+@import '../../styles/variables.scss';
+
 .Status {
   span {
-    padding: 0 8px;
-    display: inline-block;
+    position: absolute;
+    margin-left: 5px;
+    top: 10px;
+    padding: 4px 4px;
     height: 18px;
+    letter-spacing: 0.2px;
 
-    border-radius: 2px;
+    border-radius: 4px;
     font-weight: 700;
     font-size: 11px;
+
+    z-index: 1;
   }
 
   .new {
+    left: 5px;
     color: $product-card-text-color;
     background-color: $all_white_color;
   }
 
   .sale {
+    left: 5px;
+    color: $all_white_color;
+    background-color: $product-card-new-status-background-color;
+  }
+
+  .and-sale {
+    left: 45px;
     color: $all_white_color;
     background-color: $product-card-new-status-background-color;
   }
