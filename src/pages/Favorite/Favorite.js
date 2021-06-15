@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BottomNav from '../../components/BottomNav/BottomNav';
 import './Favorite.scss';
 
 class Favorite extends React.Component {
@@ -15,11 +16,15 @@ class Favorite extends React.Component {
               로그인하고 <br /> 관심상품을 담아보세요.
             </p>
             <div className="login-button-wrapper">
-              <button>로그인</button>
+              <Link to="/login">
+                <button>로그인</button>
+              </Link>
             </div>
             <div className="join-link-wrapper">
               <span>쿠캣마켓 회원이 되어보세요!</span>
-              <Link to="/">회원가입</Link>
+              <Link to="/" className="join">
+                회원가입
+              </Link>
             </div>
           </div>
           <div className="empty-container">
@@ -34,6 +39,7 @@ class Favorite extends React.Component {
             <ul></ul>
           </div>
         </div>
+        <BottomNav />
       </div>
     );
   }
