@@ -37,7 +37,7 @@ class Product extends React.Component {
     return (
       <>
         <div className="product-container">
-          <Header />
+          <Header currentMenu={1} />
           <div className="background">
             <ul className="swiper-wrapper">
               <li className="menu-wrapper">

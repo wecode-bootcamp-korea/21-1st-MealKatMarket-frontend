@@ -16,7 +16,6 @@ class Card extends React.Component {
       review_count,
     } = this.props.card;
 
-    console.log(`props: ${this.props}`);
     return (
       <li className="productcard-wrapper">
         <div className="image-wrapper">

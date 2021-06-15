@@ -31,26 +31,28 @@
     font-size: 14px;
 
     > li {
-      padding-right: 20px;
+      padding-right: 30px;
+
+      .menu-link {
+        text-decoration: none;
+        color: $header_font_color;
+
+        &:hover {
+          color: $header_hover_font_color;
+        }
+      }
+
+      .menu-clicked {
+        font-weight: 600;
+        padding-bottom: 9px;
+        border-bottom: 2px solid $header_underline_color;
+        text-decoration: none;
+        color: $header_font_color;
+      }
     }
   }
 
   .header-top-menu {
     padding: 0px 18px;
-  }
-
-  .menu-link {
-    padding: 12px 2px;
-    text-decoration: none;
-    color: $header_font_color;
-
-    &:hover {
-      color: $header_hover_font_color;
-    }
-  }
-
-  .menu-clikced {
-    font-weight: 700;
-    border-bottom: 1px solid $header_underline_color;
   }
 }
