@@ -3,7 +3,6 @@
 .favorite-vertical-card-container {
   @include flexSet(column, center, center);
   background-color: $outer_background_color;
-  height: 100vh;
 
   .card-wrapper {
     width: 162px;

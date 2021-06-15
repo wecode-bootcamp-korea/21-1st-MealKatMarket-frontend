@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import RecommendCard from '../../components/RecommendCard/RecommendCard';
 import './Cart.scss';
 
 class Cart extends React.Component {
@@ -7,7 +8,18 @@ class Cart extends React.Component {
     super();
     this.state = {
       currentItems: [],
+      recommendData: [],
     };
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.recommendData);
+  }
+
+  componentDidMount() {
+    fetch('/data/RecommendData.json')
+      .then(res => res.json())
+      .then(res => this.setState({ recommendData: res }));
   }
 
   goBack = () => {
@@ -15,7 +27,7 @@ class Cart extends React.Component {
   };
 
   render() {
-    const { currentItems } = this.state;
+    const { currentItems, recommendData } = this.state;
 
     return (
       <div className="Cart">
@@ -52,6 +64,9 @@ class Cart extends React.Component {
         </div>
         <section className="current-popular-goods-container">
           <p>실시간 베스트 상품</p>
+          <section className="goods-container">
+            <RecommendCard recommendData={recommendData} />
+          </section>
         </section>
         {currentItems.length > 0 && (
           <section className="calculate-container">

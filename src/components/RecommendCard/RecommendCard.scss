@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.productcard-wrapper {
+.RecommendCard {
   @include flexSet(column, center, center);
   background-color: $outer_background_color;
 
@@ -20,8 +20,8 @@
 
       .detail-link img {
         position: relative;
-        width: 223px;
-        height: 223px;
+        width: 30%;
+        height: 30%;
         border-radius: 10px;
       }
 
