@@ -14,29 +14,22 @@
       height: 40px;
       margin: 10px auto;
 
-      .menu,
-      .menu-2 {
+      .menu {
         text-decoration: none;
         font-size: 14px;
         color: $product-menu-button-text-color;
         padding: 10px 14px;
         background-color: $product-menu-button-background-color;
         border-radius: 20px;
-
-        &:hover {
-          color: $product-menu-button-clicked-text-color;
-          background-color: $product-menu-button-clicked-background-color;
-        }
       }
 
-      .menu {
-        width: 54px;
-        height: 40px;
-      }
-
-      .menu-2 {
-        width: 80px;
-        height: 40px;
+      .menu-clicked {
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px 14px;
+        border-radius: 20px;
+        color: $product-menu-button-clicked-text-color;
+        background-color: $product-menu-button-clicked-background-color;
       }
     }
 

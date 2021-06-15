@@ -13,6 +13,7 @@ class Product extends React.Component {
     this.state = {
       showDropdown: false,
       cardData: [],
+      selectedFilter: 0,
     };
   }
 
@@ -34,47 +35,63 @@ class Product extends React.Component {
       });
   }
   render() {
+    const CATEGORY_FILTERS = [
+      { name: '전체', url: '/products', no: 0 },
+      {
+        name: '간편요리',
+        url: '/products?categoryId=1',
+        no: 1,
+      },
+      {
+        name: '밥류',
+        url: '/products?categoryId=2',
+        no: 2,
+      },
+      {
+        name: '면류',
+        url: '/products?categoryId=3',
+        no: 3,
+      },
+      {
+        name: '반찬',
+        url: '/products?categoryId=4',
+        no: 4,
+      },
+      {
+        name: '간식',
+        url: '/products?categoryId=5',
+        no: 5,
+      },
+      {
+        name: '음료',
+        url: '/products?categoryId=6',
+        no: 5,
+      },
+    ];
     return (
       <>
         <div className="product-container">
-          <Header />
+          <Header currentMenu={1} />
           <div className="background">
             <ul className="swiper-wrapper">
-              <li className="menu-wrapper">
-                <Link to="/products" className="menu">
-                  전체
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=1" className="menu-2">
-                  간편요리
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=2" className="menu">
-                  밥류
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=3" className="menu">
-                  면류
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=4" className="menu">
-                  반찬
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=5" className="menu">
-                  간식
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=6" className="menu">
-                  음료
-                </Link>
-              </li>
+              {CATEGORY_FILTERS.map((cate, index) => {
+                console.log(cate, index);
+                return (
+                  <li>
+                    <Link
+                      to={cate.url}
+                      key={index}
+                      className={
+                        this.state.selectedFilter === cate.no
+                          ? 'menu-clicked'
+                          : 'menu'
+                      }
+                    >
+                      {cate.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
             <div className="filter-button">
               <button onClick={this.handleDropdown}>
