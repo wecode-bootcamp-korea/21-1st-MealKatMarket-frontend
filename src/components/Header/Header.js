@@ -21,7 +21,9 @@ class Header extends React.Component {
               </Link>
             </button>
           </div>
-          <img src="/icon/Search.svg" alt="search_icon" />
+          <Link to="/search">
+            <img src="/icon/Search.svg" alt="search_icon" />
+          </Link>
         </div>
         <div className="header-top-menu">
           <ul className="header-top-menu-list">

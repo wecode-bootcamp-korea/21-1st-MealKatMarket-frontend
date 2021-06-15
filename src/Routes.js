@@ -5,11 +5,8 @@ import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Product from './pages/Product/Product';
-<<<<<<< HEAD
-=======
 import Card from './components/ProductCard/Card';
 import BottomNav from './components/BottomNav/BottomNav';
->>>>>>> master
 import Bargain from './pages/Bargain/Bargain';
 import Favorite from './pages/Favorite/Favorite';
 import Detail from './pages/Detail/Detail';
