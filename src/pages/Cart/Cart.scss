@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.cart-container {
+.Cart {
   height: 100vh;
   @include flexSet(column, flex-start, center);
   background-color: $outer_background_color;
@@ -76,6 +76,39 @@
       color: $cart_best_product_text_color;
       font-size: 15px;
       font-weight: 700;
+    }
+  }
+
+  .calculate-container {
+    width: 440px;
+    height: 150px;
+    margin-top: 15px;
+    padding: 20px 15px;
+    background-color: $all_background_color;
+
+    section {
+      padding: 10px 0;
+      @include flexSet(row, space-between) .value-text, .value-number {
+        color: $cart_calculate_bold_text_color;
+        font-weight: 600;
+      }
+
+      .total-text,
+      .total-number {
+        font-weight: 600;
+        font-size: 16px;
+        color: $cart_calculate_bold_text_color;
+      }
+
+      .total-number {
+        color: $cart_calculate_total_money_color;
+        font-weight: 600;
+      }
+    }
+
+    .divide-line {
+      width: 100%;
+      border-bottom: 1px solid $cart_calculate_divide_line_color;
     }
   }
 }
