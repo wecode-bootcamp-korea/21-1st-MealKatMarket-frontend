@@ -38,7 +38,7 @@ class Header extends React.Component {
               </Link>
             </li>
             <li>
-              <Link to="/" className="menu-link">
+              <Link to="/bargain" className="menu-link">
                 런칭특가
               </Link>
             </li>

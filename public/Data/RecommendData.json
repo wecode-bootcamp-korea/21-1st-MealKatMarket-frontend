@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "캘리포니아 도넛 5종",
+    "price": 18000,
+    "discount": "15%",
+    "discounted_price": 15300,
+    "img_url": "/images/donut.png"
+  },
+  {
+    "id": 2,
+    "name": "계피가 포함된 핫쵸코",
+    "price": 7000,
+    "discount": "10%",
+    "discounted_price": 6300,
+    "img_url": "/images/hot_choco.png"
+  },
+  {
+    "id": 3,
+    "name": "방금 잡은 닭갈비",
+    "price": 20000,
+    "discount": "5%",
+    "discounted_price": 19000,
+    "img_url": "/images/닭갈비.png"
+  }
+]

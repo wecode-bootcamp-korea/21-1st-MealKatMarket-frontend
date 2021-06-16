@@ -15,13 +15,13 @@ class BottomNav extends React.Component {
               </Link>
             </li>
             <li>
-              <Link to="/" className="icon-link">
+              <Link to="/cart" className="icon-link">
                 <img src="/icon/Buy.svg" alt="cart-icon" />
                 <span>카트</span>
               </Link>
             </li>
             <li>
-              <Link to="/" className="icon-link">
+              <Link to="/favorite" className="icon-link">
                 <img src="/icon/heart.svg" alt="heart-icon" />
                 <span>관심상품</span>
               </Link>

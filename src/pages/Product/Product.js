@@ -24,7 +24,7 @@ class Product extends React.Component {
   };
 
   componentDidMount() {
-    fetch('/products', {
+    fetch(`http://10.58.3.36:8000/products${this.props.location.search}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -34,60 +34,38 @@ class Product extends React.Component {
         });
       });
   }
+
+  componentDidUpdate(prevProps) {
+    console.log(this.props);
+    if (prevProps.location.search !== this.props.location.search) {
+      fetch(`http://10.58.3.36:8000/products${this.props.location.search}`)
+        .then(res => res.json())
+        .then(res => this.setState({ cardData: res }));
+      //state값이 들어와야!!!!!!!!!!!
+    }
+  }
+
   render() {
-    const CATEGORY_FILTERS = [
-      { name: '전체', url: '/products', no: 0 },
-      {
-        name: '간편요리',
-        url: '/products?categoryId=1',
-        no: 1,
-      },
-      {
-        name: '밥류',
-        url: '/products?categoryId=2',
-        no: 2,
-      },
-      {
-        name: '면류',
-        url: '/products?categoryId=3',
-        no: 3,
-      },
-      {
-        name: '반찬',
-        url: '/products?categoryId=4',
-        no: 4,
-      },
-      {
-        name: '간식',
-        url: '/products?categoryId=5',
-        no: 5,
-      },
-      {
-        name: '음료',
-        url: '/products?categoryId=6',
-        no: 5,
-      },
-    ];
+    console.log(this.props.match);
     return (
       <>
         <div className="product-container">
           <Header currentMenu={1} />
           <div className="background">
             <ul className="swiper-wrapper">
-              {CATEGORY_FILTERS.map((cate, index) => {
-                console.log(cate, index);
+              {CATEGORY_FILTERS.map((category, index) => {
                 return (
                   <li>
                     <Link
-                      to={cate.url}
+                      to={`/?categoryId=${category.number}`}
                       key={index}
                       className={
-                        this.state.selectedFilter === cate.no
+                        this.state.selectedFilter === category.number
                           ? 'menu-clicked'
                           : 'menu'
                       }
                     >
-                      {cate.name}
+                      {category.name}
                     </Link>
                   </li>
                 );
@@ -100,21 +78,18 @@ class Product extends React.Component {
               </button>
               {this.state.showDropdown && (
                 <ul className="filter-dropdown">
-                  <li>
-                    <Link className="link">출시일순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">인기상품순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">후기많은순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">낮은가격순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">높은가격순</Link>
-                  </li>
+                  {SORT_FILTERS.map(sort => {
+                    return (
+                      <li>
+                        <Link
+                          to={`${this.props.location.search}&sort=${sort.id}`}
+                          className="link"
+                        >
+                          {sort.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>
@@ -134,3 +109,38 @@ class Product extends React.Component {
 }
 
 export default Product;
+
+const SORT_FILTERS = [
+  { name: '별점높은순', number: 0, id: '-star_score' },
+  { name: '후기많은순', number: 1, id: '-review_count' },
+  { name: '낮은가격순', number: 2, id: 'price' },
+  { name: '높은가격순', number: 3, id: 'price' },
+];
+
+const CATEGORY_FILTERS = [
+  { name: '전체', number: 0 },
+  {
+    name: '간편요리',
+    number: 1,
+  },
+  {
+    name: '밥류',
+    number: 2,
+  },
+  {
+    name: '면류',
+    number: 3,
+  },
+  {
+    name: '반찬',
+    number: 4,
+  },
+  {
+    name: '간식',
+    number: 5,
+  },
+  {
+    name: '음료',
+    number: 6,
+  },
+];
