@@ -3,17 +3,25 @@ import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
+  goBack = () => {
+    this.props.history.goBack();
+  };
   render() {
     return (
       <div className="login-container">
         <div className="background">
           <div className="gnb-container">
-            <img
-              className="arrow"
-              src="/icon/LeftArrow.svg"
-              alt="left-arrow-icon"
-            />
-            <img className="home" src="/icon/Home.svg" alt="home-icon" />
+            <span>
+              <img
+                className="arrow"
+                src="/icon/LeftArrow.svg"
+                alt="left-arrow-icon"
+                onlClick={this.goBack}
+              />
+            </span>
+            <Link to="/main">
+              <img className="home" src="/icon/Home.svg" alt="home-icon" />
+            </Link>
           </div>
           <div className="form-wrapper">
             <p className="email">이메일</p>

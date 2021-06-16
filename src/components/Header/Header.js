@@ -7,7 +7,7 @@ class Header extends React.Component {
     const { currentMenu } = this.props;
 
     const menuArr = [
-      { name: '밀캣추천', url: '/', className: 'menu-link', no: 0 },
+      { name: '밀캣추천', url: '/main', className: 'menu-link', no: 0 },
       { name: '상품보기', url: '/product', className: 'menu-link', no: 1 },
       { name: '런칭특가', url: '/bargain', className: 'menu-link', no: 2 },
     ];

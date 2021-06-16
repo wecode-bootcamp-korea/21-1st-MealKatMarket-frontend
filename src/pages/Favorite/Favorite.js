@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BottomNav from '../../components/BottomNav/BottomNav';
+import FavoriteVerticalCard from '../../components/FavoriteVerticalCard/FavoriteVerticalCard';
 import './Favorite.scss';
 
 class Favorite extends React.Component {
@@ -27,19 +28,16 @@ class Favorite extends React.Component {
               </Link>
             </div>
           </div>
-          <div className="empty-container">
-            <img src="/images/텅.png" alt="empty" />
-            <span>관심상품이 없습니다.</span>
-          </div>
           <div className="blank"></div>
           <div className="popular-list-container">
             <div className="wish-popular-wrapper">
               <p>많은 관심을 받은 상품</p>
+              <FavoriteVerticalCard />
             </div>
             <ul></ul>
           </div>
         </div>
-        <BottomNav />
+        <BottomNav selectedNav={2} />
       </div>
     );
   }

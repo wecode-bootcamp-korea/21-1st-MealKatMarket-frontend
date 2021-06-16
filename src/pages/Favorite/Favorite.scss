@@ -90,12 +90,13 @@
 
     .popular-list-container {
       padding-left: 18px;
+      height: 490px;
 
       .wish-popular-wrapper {
-        padding: 28px 0px 13px;
         p {
           color: $favorite_wish_popular_text_color;
           font-weight: 600;
+          padding: 28px 0px 13px;
         }
       }
     }

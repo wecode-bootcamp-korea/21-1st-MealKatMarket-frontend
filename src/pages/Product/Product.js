@@ -34,6 +34,7 @@ class Product extends React.Component {
       });
   }
   render() {
+    console.log(this.props.location.search);
     return (
       <>
         <div className="product-container">
@@ -41,37 +42,37 @@ class Product extends React.Component {
           <div className="background">
             <ul className="swiper-wrapper">
               <li className="menu-wrapper">
-                <Link to="/products" className="menu">
+                <Link to="/" className="menu">
                   전체
                 </Link>
               </li>
               <li>
-                <Link to="/products?category-id=1" className="menu-2">
+                <Link to="/products?categoryId=1" className="menu-2">
                   간편요리
                 </Link>
               </li>
               <li>
-                <Link to="/products?category-id=2" className="menu">
+                <Link to="/products?categoryId=2" className="menu">
                   밥류
                 </Link>
               </li>
               <li>
-                <Link to="/products?category-id=3" className="menu">
+                <Link to="/products?categoryId=3" className="menu">
                   면류
                 </Link>
               </li>
               <li>
-                <Link to="/products?category-id=4" className="menu">
+                <Link to="/products?categoryId=4" className="menu">
                   반찬
                 </Link>
               </li>
               <li>
-                <Link to="/products?category-id=5" className="menu">
+                <Link to="/products?categoryId=5" className="menu">
                   간식
                 </Link>
               </li>
               <li>
-                <Link to="/products?category-id=6" className="menu">
+                <Link to="/products?categoryId=6" className="menu">
                   음료
                 </Link>
               </li>
@@ -108,7 +109,7 @@ class Product extends React.Component {
                 ))}
             </ul>
           </div>
-          <BottomNav />
+          <BottomNav selectedNav={0} />
           <Footer />
         </div>
       </>

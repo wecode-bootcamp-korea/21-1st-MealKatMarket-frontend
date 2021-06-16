@@ -88,7 +88,7 @@ class Bargain extends React.Component {
             </div>
           </section>
         </div>
-        <BottomNav />
+        <BottomNav selectedNav={0} />
         <Footer />
         {this.state.visible && <Modal closeModal={this.closeModal} />}
       </div>
