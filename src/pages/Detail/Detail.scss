@@ -16,10 +16,11 @@
       width: 500px;
       height: 50px;
       padding: 10px 10px;
+      @include flexSet(row, flex-start, center);
       position: fixed;
       top: 0;
       background-color: rgba(255, 255, 255, 0.4);
-      @include flexSet(row, flex-start, center);
+      z-index: 1;
 
       .left-icon-container {
         width: 50%;
@@ -86,9 +87,27 @@
 
         > .product-price {
           margin-top: 15px;
+          font-size: 15px;
+          font-weight: 400;
+          text-decoration: line-through;
           color: $detail_product_price_color;
-          font-size: 20px;
-          font-weight: 700;
+        }
+
+        .product-discount-info {
+          padding-top: 10px;
+          @include flexSet(row, flex-start, center);
+
+          > .product-discount-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: $detail_product_discount_price_color;
+          }
+          > .product-discount-percent {
+            padding-left: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: $detail_product_percentage_color;
+          }
         }
 
         > .product-origin {
@@ -121,14 +140,23 @@
     }
 
     .product-recommend {
-      height: 170px;
-      padding: 20px 15px;
+      padding: 20px 18px;
       background-color: $all_background_color;
 
       .recommend-title {
         font-size: 16px;
         font-weight: 600;
         color: $detail_product_recommend_title_color;
+      }
+
+      .recommend-card-container {
+        padding-top: 20px;
+
+        .RecommendCard {
+          .background-wrapper {
+            width: 480px;
+          }
+        }
       }
     }
 

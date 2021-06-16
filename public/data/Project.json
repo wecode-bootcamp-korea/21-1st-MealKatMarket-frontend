@@ -7,7 +7,7 @@
     "discounted_price": 15300,
     "star_score": "4.5",
     "review_count": 3,
-    "required_options": [
+    "required_food": [
       {
         "id": 1,
         "food_id": 1,
@@ -23,7 +23,7 @@
         "option_quantity": 3
       }
     ],
-    "select_options": [
+    "select_food": [
       {
         "id": 1,
         "food_id": 1,
@@ -39,7 +39,7 @@
         "option_quantity": 1
       }
     ],
-    "food_images": [
+    "detail_image": [
       {
         "id": 1,
         "food_id": 1,

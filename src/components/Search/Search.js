@@ -72,7 +72,7 @@ class Search extends React.Component {
       {
         inputValue: value,
       },
-      this.searchByInput()
+      this.searchByInput
     );
   };
 
