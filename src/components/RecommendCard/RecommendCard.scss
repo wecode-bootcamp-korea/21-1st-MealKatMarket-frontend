@@ -1,0 +1,104 @@
+@import '../../styles/variables.scss';
+
+.RecommendCard {
+  @include flexSet(column, center, center);
+
+  .background-wrapper {
+    width: 440px;
+    padding: 0 10px;
+    background-color: $all_background_color;
+    position: relative;
+    @include flexSet(row);
+
+    .detail-link,
+    .review-link {
+      text-decoration: none;
+    }
+
+    .all-wrapper {
+      width: 100%;
+      @include flexSet(column);
+      .image-wrapper {
+        position: relative;
+
+        .detail-link img {
+          position: relative;
+          width: 80%;
+          border-radius: 10px;
+        }
+
+        .cart-link img {
+          z-index: 1;
+          position: absolute;
+          bottom: 12px;
+          right: 12px;
+          width: 36px;
+        }
+
+        span {
+          position: absolute;
+          margin-left: 5px;
+          top: 10px;
+          padding: 4px 4px;
+          height: 18px;
+          letter-spacing: 0.2px;
+
+          border-radius: 4px;
+          font-weight: 700;
+          font-size: 11px;
+
+          z-index: 1;
+        }
+
+        .new {
+          left: 40px;
+          color: $product-card-text-color;
+          background-color: $all_white_color;
+        }
+
+        .sale {
+          left: 0;
+          color: $all_white_color;
+          background-color: $product-card-new-status-background-color;
+        }
+      }
+
+      .info-wrapper {
+        .name {
+          margin: 8px 0px 4px;
+          font-size: 12px;
+          line-height: 16px;
+          color: $product-card-text-color;
+        }
+        .before-price {
+          padding-bottom: 8px;
+          font-size: 12px;
+          color: $product-card-before-price-color;
+          text-decoration: line-through;
+        }
+
+        .price-line {
+          padding-bottom: 8px;
+          .percent {
+            padding-bottom: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            color: $prodcut-card-discount-percentage-color;
+          }
+          .now-price {
+            padding-bottom: 8px;
+            margin-left: 6px;
+            font-weight: 700;
+            color: $product-card-text-color;
+          }
+
+          .won {
+            margin-left: 1px;
+            padding-bottom: 8px;
+            color: $product-card-text-color;
+          }
+        }
+      }
+    }
+  }
+}
