@@ -22,7 +22,7 @@ class Header extends React.Component {
         </div>
         <div className="header-top-menu">
           <ul className="header-top-menu-list">
-            {menuArr.map((menu, index) => {
+            {MENU_ARR.map((menu, index) => {
               return (
                 <li>
                   <Link
@@ -46,7 +46,7 @@ class Header extends React.Component {
 
 export default Header;
 
-const menuArr = [
+const MENU_ARR = [
   { name: '밀캣추천', url: '/main', className: 'menu-link', no: 0 },
   { name: '상품보기', url: '/product', className: 'menu-link', no: 1 },
   { name: '런칭특가', url: '/bargain', className: 'menu-link', no: 2 },

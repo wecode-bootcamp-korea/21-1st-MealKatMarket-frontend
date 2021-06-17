@@ -10,7 +10,7 @@ class BottomNav extends React.Component {
       <div className="bottom-container">
         <div className="background">
           <ul className="list-wrapper">
-            {navArr.map((nav, idx) => {
+            {NAV_ARR.map((nav, idx) => {
               return (
                 <li>
                   <Link
@@ -35,7 +35,7 @@ class BottomNav extends React.Component {
 
 export default BottomNav;
 
-const navArr = [
+const NAV_ARR = [
   {
     name: '홈',
     url: '/product',
