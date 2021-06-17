@@ -12,7 +12,7 @@ class SearchList extends React.Component {
             searchedData.map((data, index) => {
               return (
                 <Link
-                  to={`result?keyword=${inputValue}`}
+                  to={`search/result?keyword=${inputValue}`}
                   className="search-link"
                   key={index}
                 >

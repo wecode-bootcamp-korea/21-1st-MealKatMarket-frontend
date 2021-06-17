@@ -69,11 +69,11 @@ class Detail extends React.Component {
   };
 
   handleLikeButton = () => {
-    fetch(`http://${process.env.KYUCHEOL_IP_ADDRESS}/wishes?food_id=4`, {
+    const tokenForAuth = localStorage.getItem('Token');
+    fetch(`http://${process.env.KC_IP_ADDRESS}/wishes?food_id=4`, {
       method: 'DELETE',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.JMYVoc9YUtC3QJfn1dwgZGYInuLr6MMZq0UnlsDZgQo',
+        Authorization: tokenForAuth,
       },
     })
       .then(res => res.json())
