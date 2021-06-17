@@ -6,7 +6,7 @@
   z-index: 1;
   background-color: $all_background_color;
   @include flexSet(column, center, center);
-
+  z-index: 2;
   .header-container {
     @include flexSet(row, space-between, center);
     width: 500px;

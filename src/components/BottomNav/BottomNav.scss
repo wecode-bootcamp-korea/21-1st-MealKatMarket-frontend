@@ -4,7 +4,6 @@
   position: fixed;
   bottom: 0;
   @include flexSet(column, center, center);
-  background-color: $outer_background_color;
   z-index: 2;
 
   .background {

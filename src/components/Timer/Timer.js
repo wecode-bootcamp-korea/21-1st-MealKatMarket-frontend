@@ -26,7 +26,7 @@ export default class Timer extends Component {
   }
 
   componentDidMount() {
-    this.deadline = new Date('jun 15, 2021 24:00:00').getTime();
+    this.deadline = new Date('jun 19, 2021 24:00:00').getTime();
     this.timer = setInterval(this.count, 1000);
   }
   render() {
