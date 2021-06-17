@@ -62,8 +62,8 @@ class Product extends React.Component {
                     <Link
                       to={
                         category.number === 0
-                          ? `/`
-                          : `/?categoryId=${category.number}`
+                          ? `/product`
+                          : `/product?categoryId=${category.number}`
                       }
                       key={index}
                       className={
@@ -89,7 +89,7 @@ class Product extends React.Component {
                     return (
                       <li>
                         <Link
-                          to={`${this.props.location.search}&sort=${sort.id}`}
+                          to={`/product?${this.props.location.search}&sort=${sort.id}`}
                           className="link"
                         >
                           {sort.name}

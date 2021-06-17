@@ -50,9 +50,11 @@ class ProductTest extends React.Component {
         items: this.state.items + 10,
       });
     }
-    this.componentDidMount();
   };
 
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.infiniteScroll);
+  };
   render() {
     const { cardData } = this.state;
     return (
