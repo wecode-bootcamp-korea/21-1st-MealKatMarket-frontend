@@ -12,7 +12,11 @@ class Product extends React.Component {
 
     this.state = {
       showDropdown: false,
+      selectedFilter: '',
       cardData: [],
+      productList: [],
+      items: 10,
+      preItems: 0,
     };
   }
 
@@ -22,8 +26,8 @@ class Product extends React.Component {
     }));
   };
 
-  componentDidMount() {
-    fetch('/products', {
+  componentDidMount = () => {
+    fetch(`http://10.58.3.36:8000/products${this.props.location.search}`, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -32,49 +36,46 @@ class Product extends React.Component {
           cardData: data,
         });
       });
-  }
+  };
+
+  componentDidUpdate = prevProps => {
+    console.log(this.props);
+    if (prevProps.location.search !== this.props.location.search) {
+      fetch(`http://10.58.3.36:8000/products${this.props.location.search}`)
+        .then(res => res.json())
+        .then(res => this.setState({ cardData: res }));
+      //state값이 들어와야!!!!!!!!!!!
+    }
+  };
+
   render() {
     return (
       <>
         <div className="product-container">
-          <Header />
+          <Header currentMenu={1} />
           <div className="background">
             <ul className="swiper-wrapper">
-              <li className="menu-wrapper">
-                <Link to="/products" className="menu">
-                  전체
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=1" className="menu-2">
-                  간편요리
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=2" className="menu">
-                  밥류
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=3" className="menu">
-                  면류
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=4" className="menu">
-                  반찬
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=5" className="menu">
-                  간식
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category-id=6" className="menu">
-                  음료
-                </Link>
-              </li>
+              {CATEGORY_FILTERS.map((category, index) => {
+                return (
+                  <li>
+                    <Link
+                      to={
+                        category.number === 0
+                          ? `/product`
+                          : `/product?categoryId=${category.number}`
+                      }
+                      key={index}
+                      className={
+                        this.state.selectedFilter === category.number
+                          ? 'menu-clicked'
+                          : 'menu'
+                      }
+                    >
+                      {category.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
             <div className="filter-button">
               <button onClick={this.handleDropdown}>
@@ -83,21 +84,18 @@ class Product extends React.Component {
               </button>
               {this.state.showDropdown && (
                 <ul className="filter-dropdown">
-                  <li>
-                    <Link className="link">출시일순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">인기상품순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">후기많은순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">낮은가격순</Link>
-                  </li>
-                  <li>
-                    <Link className="link">높은가격순</Link>
-                  </li>
+                  {SORT_FILTERS.map(sort => {
+                    return (
+                      <li>
+                        <Link
+                          to={`/product?${this.props.location.search}&sort=${sort.id}`}
+                          className="link"
+                        >
+                          {sort.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>
@@ -108,7 +106,7 @@ class Product extends React.Component {
                 ))}
             </ul>
           </div>
-          <BottomNav />
+          <BottomNav selectedNav={0} />
           <Footer />
         </div>
       </>
@@ -117,3 +115,38 @@ class Product extends React.Component {
 }
 
 export default Product;
+
+const SORT_FILTERS = [
+  { name: '별점높은순', number: 0, id: '-star_score' },
+  { name: '후기많은순', number: 1, id: '-review_count' },
+  { name: '낮은가격순', number: 2, id: 'price' },
+  { name: '높은가격순', number: 3, id: 'price' },
+];
+
+const CATEGORY_FILTERS = [
+  { name: '전체', number: 0 },
+  {
+    name: '간편요리',
+    number: 1,
+  },
+  {
+    name: '밥류',
+    number: 2,
+  },
+  {
+    name: '면류',
+    number: 3,
+  },
+  {
+    name: '반찬',
+    number: 4,
+  },
+  {
+    name: '간식',
+    number: 5,
+  },
+  {
+    name: '음료',
+    number: 6,
+  },
+];
