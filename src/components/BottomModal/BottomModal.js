@@ -27,10 +27,6 @@ class BottomModal extends React.Component {
     console.log(this.state.selectedItems);
   }
 
-  validateItems = () => {
-    const { selectedItems } = this.state;
-  };
-
   clickItems = e => {
     const { isSelected, isRequired, selectedItems } = this.state;
     const {
@@ -38,10 +34,6 @@ class BottomModal extends React.Component {
         dataset: { name, price },
       },
     } = e;
-
-    selectedItems.map(value => {
-      console.log(value.name === name ? '중복' : '와우');
-    });
 
     if (isRequired || isSelected) {
       this.setState({ isRequired: false, isSelected: false });
@@ -57,7 +49,6 @@ class BottomModal extends React.Component {
     this.setState({ selectedItems: newSelectedItems }, () => {
       this.calculateMoney();
       this.calculateQuantity();
-      this.validateItems();
     });
   };
 
@@ -177,7 +168,7 @@ class BottomModal extends React.Component {
             {selectedItems.length > 0 &&
               selectedItems.map((data, index) => {
                 return (
-                  <section className="added-option">
+                  <section className="added-option" key={data.id}>
                     <section className="title-container">
                       <p className="option-title">{data.name}</p>
                       <img
@@ -196,10 +187,10 @@ class BottomModal extends React.Component {
                         </button>
                         <input
                           type="text"
-                          class="quantity-count"
+                          className="quantity-count"
                           data-count="1"
-                          defaultValue={data.quantity}
-                          value={data.quantity}
+                          Value={data.quantity}
+                          onChange={true}
                         />
                         <button
                           className="quantity-plus"

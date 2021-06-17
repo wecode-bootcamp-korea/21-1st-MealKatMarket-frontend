@@ -68,6 +68,18 @@ class Detail extends React.Component {
     });
   };
 
+  handleLikeButton = () => {
+    fetch(`http://${process.env.KYUCHEOL_IP_ADDRESS}/wishes?food_id=4`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.JMYVoc9YUtC3QJfn1dwgZGYInuLr6MMZq0UnlsDZgQo',
+      },
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+  };
+
   goBack = () => {
     this.props.history.goBack();
   };
@@ -193,7 +205,11 @@ class Detail extends React.Component {
                 </section>
               </section>
               <section className="purchase-bar">
-                <img alt="heart" src="/icon/heart.svg" />
+                <img
+                  alt="heart"
+                  src="/icon/heart.svg"
+                  onClick={this.handleLikeButton}
+                />
                 <button className="purchase-button" onClick={this.toggleModal}>
                   구매하기
                 </button>
