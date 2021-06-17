@@ -8,8 +8,6 @@ class BottomModal extends React.Component {
       isRequired: false,
       isSelected: false,
       selectedItems: [],
-      totalCount: 0,
-      totalMoney: 0,
     };
   }
 
@@ -18,14 +16,6 @@ class BottomModal extends React.Component {
       [name]: !this.state[name],
     });
   };
-
-  removeItem = e => {
-    console.log(e);
-  };
-
-  componentDidUpdate() {
-    console.log(this.state.selectedItems);
-  }
 
   clickItems = e => {
     const { isSelected, isRequired, selectedItems } = this.state;
@@ -46,10 +36,7 @@ class BottomModal extends React.Component {
       quantity: 1,
     };
     const newSelectedItems = selectedItems.concat(selectedItemObj);
-    this.setState({ selectedItems: newSelectedItems }, () => {
-      this.calculateMoney();
-      this.calculateQuantity();
-    });
+    this.setState({ selectedItems: newSelectedItems });
   };
 
   calculateQuantity = () => {
@@ -57,7 +44,7 @@ class BottomModal extends React.Component {
     const totalCount = selectedItems.reduce((acc, cur) => {
       return acc + cur.quantity;
     }, 0);
-    this.setState({ totalCount });
+    return totalCount;
   };
 
   calculateMoney = () => {
@@ -65,7 +52,7 @@ class BottomModal extends React.Component {
     const totalMoney = selectedItems.reduce((acc, cur) => {
       return acc + cur.price * cur.quantity;
     }, 0);
-    this.setState({ totalMoney });
+    return totalMoney;
   };
 
   countQuantity = (idx, kind) => {
@@ -79,15 +66,11 @@ class BottomModal extends React.Component {
           }
         : { ...value };
     });
-    this.setState({ selectedItems: newSelectedItems }, () => {
-      this.calculateMoney();
-      this.calculateQuantity();
-    });
+    this.setState({ selectedItems: newSelectedItems });
   };
 
   render() {
-    const { isRequired, isSelected, selectedItems, totalCount, totalMoney } =
-      this.state;
+    const { isRequired, isSelected, selectedItems } = this.state;
     const { requireOption, selectOption, toggleModal } = this.props;
 
     return (
@@ -211,11 +194,11 @@ class BottomModal extends React.Component {
           <section className="purchase-total">
             <p className="total-quantity">
               총 수량
-              <span>{totalCount}</span>개
+              <span>{this.calculateQuantity()}</span>개
             </p>
             <p className="total-price">
               총 금액
-              <span>{totalMoney.toLocaleString()}</span>원
+              <span>{this.calculateMoney().toLocaleString()}</span>원
             </p>
           </section>
           <button className="add-card-button">카트담기</button>
