@@ -12,8 +12,11 @@ class Product extends React.Component {
 
     this.state = {
       showDropdown: false,
+      selectedFilter: '',
       cardData: [],
-      selectedFilter: 0,
+      productList: [],
+      items: 10,
+      preItems: 0,
     };
   }
 
@@ -23,7 +26,7 @@ class Product extends React.Component {
     }));
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
     fetch(`http://10.58.3.36:8000/products${this.props.location.search}`, {
       method: 'GET',
     })
@@ -33,9 +36,9 @@ class Product extends React.Component {
           cardData: data,
         });
       });
-  }
+  };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate = prevProps => {
     console.log(this.props);
     if (prevProps.location.search !== this.props.location.search) {
       fetch(`http://10.58.3.36:8000/products${this.props.location.search}`)
@@ -43,7 +46,7 @@ class Product extends React.Component {
         .then(res => this.setState({ cardData: res }));
       //state값이 들어와야!!!!!!!!!!!
     }
-  }
+  };
 
   render() {
     console.log(this.props.match);
@@ -57,7 +60,11 @@ class Product extends React.Component {
                 return (
                   <li>
                     <Link
-                      to={`/?categoryId=${category.number}`}
+                      to={
+                        category.number === 0
+                          ? `/`
+                          : `/?categoryId=${category.number}`
+                      }
                       key={index}
                       className={
                         this.state.selectedFilter === category.number

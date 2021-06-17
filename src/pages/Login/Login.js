@@ -6,17 +6,17 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      userId: '',
-      userPassword: '',
+      email: '',
+      password: '',
     };
   }
 
   goToMain = () => {
-    fetch('http://:8000/user/signin', {
+    fetch('http://10.58.2.187:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        id: this.state.userId,
-        password: this.state.userPassword,
+        email: this.state.email,
+        password: this.state.password,
       }),
     })
       .then(response => response.json())
@@ -24,20 +24,20 @@ class Login extends React.Component {
         console.log(result);
         if (result.message === 'SUCCESS') {
           this.props.history.push('/product');
-          localStorage.setItem('token', result.token);
+          localStorage.setItem('token', result.access_token);
         }
       });
   };
 
   handleIdInput = e => {
     this.setState({
-      userId: e.target.value,
+      email: e.target.value,
     });
   };
 
   handlePasswordInput = e => {
     this.setState({
-      userPassword: e.target.value,
+      password: e.target.value,
     });
   };
 
@@ -47,7 +47,7 @@ class Login extends React.Component {
 
   render() {
     const { handleIdInput, handlePasswordInput } = this;
-    const { userId, userPassword } = this.state;
+    const { email, password } = this.state;
 
     return (
       <div className="login-container">
@@ -65,14 +65,14 @@ class Login extends React.Component {
             <p className="email">이메일</p>
             <input
               placeholder="example@mealkat.com"
-              value={userId}
+              value={email}
               onChange={handleIdInput}
             ></input>
             <p className="password">비밀번호</p>
             <input
               type="password"
               placeholder="비밀번호 입력"
-              value={userPassword}
+              value={password}
               onChange={handlePasswordInput}
             ></input>
           </div>

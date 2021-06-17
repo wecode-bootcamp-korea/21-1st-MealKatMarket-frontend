@@ -9,6 +9,7 @@ import Bargain from './pages/Bargain/Bargain';
 import Favorite from './pages/Favorite/Favorite';
 import Detail from './pages/Detail/Detail';
 import Main from './pages/Main/Main';
+import ProductTest from './pages/ProductTest/ProductTest';
 import SearchResult from './pages/SearchResult/SearchResult';
 
 class Routes extends React.Component {
@@ -17,6 +18,7 @@ class Routes extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Product} />
+          <Route exact path="/test" component={ProductTest} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/search/result/:id" component={SearchResult} />
