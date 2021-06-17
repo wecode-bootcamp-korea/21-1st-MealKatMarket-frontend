@@ -1,16 +1,34 @@
 @import '../../styles/variables.scss';
 
 .favorite-vertical-card-container {
-  @include flexSet(column, flex-start, flex-start);
-  margin-right: 18px;
+  @include flexSet(row, flex-start, flex-start);
 
   .card-wrapper {
+    margin-right: 18px;
     width: 162px;
     height: 268px;
     background-color: $all_background_color;
 
     .image-wrapper {
       position: relative;
+
+      .new {
+        position: absolute;
+        margin-left: 5px;
+        top: 10px;
+        padding: 4px 4px;
+        height: 18px;
+        letter-spacing: 0.2px;
+
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 11px;
+
+        z-index: 1;
+        left: 5px;
+        color: $product-card-text-color;
+        background-color: $all_white_color;
+      }
 
       img {
         width: 162px;
