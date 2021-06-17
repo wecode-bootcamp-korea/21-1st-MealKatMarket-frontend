@@ -188,6 +188,10 @@
 
       .product-main-image-container {
         @include flexSet(row, center, center);
+
+        > img {
+          width: 100%;
+        }
       }
     }
 

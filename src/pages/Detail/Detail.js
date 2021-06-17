@@ -38,8 +38,7 @@ class Detail extends React.Component {
     fetch(`http://10.58.2.187:8000/products/wish/${id}`, {
       headers: {
         // Token 써야하지만 임시 테스트용으로 직접 Token 넣어둠
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.uJTe8E89_3-PP14E_a7BtLHfOI6RgAWUNOwhNCo6nng',
+        Authorization: authToken,
       },
     })
       .then(res => res.json())
@@ -220,8 +219,8 @@ class Detail extends React.Component {
                 </ul>
               </section>
               <section className="product-main-image-container">
-                <img src={message.detail_image} />
-                <img src="/images/쿠캣당일발송.png" />
+                <img alt="product info" src={message.detail_image} />
+                <img alt="delivery info" src="/images/쿠캣당일발송.png" />
               </section>
             </section>
             <section className="purchase-bar">

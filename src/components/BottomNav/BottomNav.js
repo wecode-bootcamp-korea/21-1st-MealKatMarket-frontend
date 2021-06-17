@@ -85,14 +85,14 @@ const LOGIN_NAV_ARR = [
     url: '/favorite',
     src: '/icon/heart.svg',
     alt: 'icon',
-    no: 1,
+    no: 2,
   },
   {
     name: '로그인',
     url: '/login',
     src: '/icon/Profile.svg',
     alt: 'icon',
-    no: 2,
+    no: 3,
   },
 ];
 
@@ -110,13 +110,13 @@ const LOGOUT_NAV_ARR = [
     url: '/favorite',
     src: '/icon/heart.svg',
     alt: 'icon',
-    no: 1,
+    no: 2,
   },
   {
     name: '로그아웃',
     url: '/',
     src: '/icon/Profile.svg',
     alt: 'icon',
-    no: 2,
+    no: 3,
   },
 ];

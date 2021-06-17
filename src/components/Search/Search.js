@@ -29,11 +29,10 @@ class Search extends React.Component {
   componentDidMount() {
     fetch('http://10.58.3.193:8000/products/search')
       .then(res => res.json())
-      .then(
-        res => console.log(res)
-        // this.setState({
-        //   productData: res,
-        // })
+      .then(res =>
+        this.setState({
+          productData: res,
+        })
       );
   }
 
