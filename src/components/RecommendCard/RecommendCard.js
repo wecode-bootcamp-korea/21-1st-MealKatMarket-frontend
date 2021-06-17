@@ -16,7 +16,7 @@ class RecommendCard extends React.Component {
                   <span className="sale">SALE</span>
                   <span className="new">NEW</span>
                   <Link to="/" className="detail-link">
-                    <img src={data.img_url} alt="food" />
+                    <img src={data.image} alt="food" />
                   </Link>
                 </div>
                 <div className="info-wrapper">
@@ -25,11 +25,6 @@ class RecommendCard extends React.Component {
                     <p className="before-price">
                       {data.price.toLocaleString()}
                     </p>
-                    <div className="price-line">
-                      <span className="percent">{data.discount}</span>
-                      <span className="now-price">{data.discounted_price}</span>
-                      <span className="won">원</span>
-                    </div>
                   </Link>
                 </div>
               </div>

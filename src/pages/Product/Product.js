@@ -39,7 +39,6 @@ class Product extends React.Component {
   };
 
   componentDidUpdate = prevProps => {
-    console.log(this.props);
     if (prevProps.location.search !== this.props.location.search) {
       fetch(`http://10.58.3.36:8000/products${this.props.location.search}`)
         .then(res => res.json())

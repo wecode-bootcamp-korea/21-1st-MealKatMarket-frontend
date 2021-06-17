@@ -21,20 +21,26 @@ class Search extends React.Component {
     };
   }
 
+  componentDidUpdate() {
+    console.log(this.state.productData);
+    console.log(this.state.searchedData);
+  }
+
   componentDidMount() {
-    fetch('/data/testData.json')
+    fetch('http://10.58.3.193:8000/products/search')
       .then(res => res.json())
-      .then(res =>
-        this.setState({
-          productData: res,
-        })
+      .then(
+        res => console.log(res)
+        // this.setState({
+        //   productData: res,
+        // })
       );
   }
 
   searchByInput = () => {
     const { productData, inputValue } = this.state;
-    const filteredData = productData.filter(data =>
-      data.name.includes(inputValue)
+    const filteredData = productData.product_list.filter(data =>
+      data.title_name.includes(inputValue)
     );
 
     this.setState({ searchedData: !inputValue ? [] : filteredData });
