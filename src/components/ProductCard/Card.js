@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './Card.scss';
 import Status from './Status';
 
@@ -16,7 +16,6 @@ class Card extends React.Component {
       review_count,
     } = this.props.card;
 
-    console.log(`props: ${this.props}`);
     return (
       <li className="productcard-wrapper">
         <div className="image-wrapper">
@@ -52,4 +51,4 @@ class Card extends React.Component {
   }
 }
 
-export default Card;
+export default withRouter(Card);
