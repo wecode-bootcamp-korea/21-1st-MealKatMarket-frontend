@@ -55,7 +55,22 @@
   }
 
   .header-top-menu {
-    padding: 0px 20px;
+    padding: 0px 18px;
     border-bottom: 1px solid $login_border_color;
+  }
+
+  .menu-link {
+    padding: 12px 2px;
+    text-decoration: none;
+    color: $header_font_color;
+
+    &:hover {
+      color: $header_hover_font_color;
+    }
+  }
+
+  .menu-clikced {
+    font-weight: 700;
+    border-bottom: 1px solid $header_underline_color;
   }
 }
