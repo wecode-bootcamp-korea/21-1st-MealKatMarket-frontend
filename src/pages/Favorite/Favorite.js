@@ -32,9 +32,8 @@ class Favorite extends React.Component {
           <div className="popular-list-container">
             <div className="wish-popular-wrapper">
               <p>많은 관심을 받은 상품</p>
-              <FavoriteVerticalCard />
             </div>
-            <ul></ul>
+            <ul className="list-wrapper"></ul>
           </div>
         </div>
         <BottomNav selectedNav={2} />

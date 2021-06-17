@@ -2,6 +2,7 @@
 
 .favorite-vertical-card-container {
   @include flexSet(column, flex-start, flex-start);
+  margin-right: 18px;
 
   .card-wrapper {
     width: 162px;

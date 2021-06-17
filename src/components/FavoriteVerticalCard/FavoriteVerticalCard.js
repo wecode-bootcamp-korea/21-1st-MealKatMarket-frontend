@@ -9,7 +9,7 @@ class FavoriteVerticalCard extends React.Component {
         <div className="card-wrapper">
           <div className="image-wrapper">
             <Link to="/" className="image-link">
-              <img src="/images/닭갈비.png" alt="food" />
+              <img src={'/images/닭갈비.png'} alt="food" />
               <Link to="/" className="cart-icon-link">
                 <img src="/icon/cart-button.svg" alt="cart-icon" />
               </Link>

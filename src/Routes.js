@@ -11,6 +11,7 @@ import Bargain from './pages/Bargain/Bargain';
 import Favorite from './pages/Favorite/Favorite';
 import Detail from './pages/Detail/Detail';
 import Main from './pages/Main/Main';
+import SearchResult from './pages/SearchResult/SearchResult';
 
 class Routes extends React.Component {
   render() {
@@ -20,14 +21,13 @@ class Routes extends React.Component {
           <Route exact path="/" component={Product} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/search/result/:id" component={SearchResult} />
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/productcard" component={Card} />
-          <Route exact path="/bottomnav" component={BottomNav} />
           <Route exact path="/bargain" component={Bargain} />
           <Route exact path="/favorite" component={Favorite} />
           <Route exact path="/detail" component={Detail} />
-          <Route exact path="/main" component={Main} />
+          <Route exact path="/*" component={Product} />
         </Switch>
       </Router>
     );
