@@ -4,6 +4,19 @@ import './Card.scss';
 import Status from './Status';
 
 class Card extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isLiked: false,
+    };
+  }
+
+  toggleLike = () => {
+    this.setState({
+      isLiked: !this.state.isLiked,
+    });
+  };
+
   render() {
     const {
       img_url,
@@ -23,9 +36,16 @@ class Card extends React.Component {
           <Link to="#" className="detail-link">
             <img src={img_url} alt="donut" />
           </Link>
-          <Link to="/" className="cart-link">
-            <img src="/icon/cart-button-40.svg" alt="cart-icon" />
-          </Link>
+          <img
+            onClick={this.toggleLike}
+            src={
+              this.state.isLiked
+                ? '/icon/heart-40-liked.svg'
+                : '/icon/heart-40.svg'
+            }
+            className="heart-button"
+            alt="heart"
+          />
         </div>
         <div className="info-wrapper">
           <Link to="#" className="detail-link">
@@ -47,7 +67,7 @@ class Card extends React.Component {
             <img src="/icon/star.svg" alt="star-icon" />
             <span> {star_score}</span>
             <span> | </span>
-            <span> 후기 {review_count}</span>
+            <span> 후기 {review_count.toLocaleString()}</span>
           </Link>
         </div>
       </li>
