@@ -41,6 +41,13 @@
       color: $product-card-before-price-color;
       text-decoration: line-through;
     }
+    .non {
+      padding: 0px;
+      font-size: 16px;
+      font-weight: 700;
+      color: $prodcut-card-discount-percentage-color;
+      display: none;
+    }
 
     .price-line {
       padding-top: 6px;
@@ -56,6 +63,7 @@
         font-size: 16px;
         font-weight: 700;
         color: $prodcut-card-discount-percentage-color;
+        display: none;
       }
       .now-price {
         margin-right: 1px;

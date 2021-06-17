@@ -29,15 +29,13 @@ class Login extends React.Component {
       });
   };
 
-  handleIdInput = e => {
-    this.setState({
-      email: e.target.value,
-    });
-  };
+  handleInput = e => {
+    const {
+      target: { name, value },
+    } = e;
 
-  handlePasswordInput = e => {
     this.setState({
-      password: e.target.value,
+      [name]: value,
     });
   };
 
@@ -46,7 +44,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { handleIdInput, handlePasswordInput } = this;
+    const { handleInput } = this;
     const { email, password } = this.state;
 
     return (
@@ -66,15 +64,17 @@ class Login extends React.Component {
             <input
               placeholder="example@mealkat.com"
               value={email}
-              onChange={handleIdInput}
-            ></input>
+              onChange={handleInput}
+              name="email"
+            />
             <p className="password">비밀번호</p>
             <input
               type="password"
               placeholder="비밀번호 입력"
               value={password}
-              onChange={handlePasswordInput}
-            ></input>
+              onChange={handleInput}
+              name="password"
+            />
           </div>
           <div className="login-remember-wrapper">
             <input type="checkbox"></input>

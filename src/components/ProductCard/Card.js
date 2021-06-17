@@ -30,12 +30,16 @@ class Card extends React.Component {
         <div className="info-wrapper">
           <Link to="#" className="detail-link">
             <p className="name">{name}</p>
-            <p className="before-price">{price}</p>
+            <p className={discounted_price === price ? 'non' : 'before-price'}>
+              {Math.abs(price).toLocaleString()}원
+            </p>
             <div className="price-line">
-              <span className={discount === undefined ? 'non' : 'discount'}>
-                {discount}
+              <span className={discount === 0 ? 'non' : 'discount'}>
+                {discount}%
               </span>
-              <span className="now-price">{discounted_price}</span>
+              <span className="now-price">
+                {Math.abs(discounted_price).toLocaleString()}
+              </span>
               <span className="won">원</span>
             </div>
           </Link>
