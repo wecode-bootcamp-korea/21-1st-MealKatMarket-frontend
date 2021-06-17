@@ -49,7 +49,6 @@ class Product extends React.Component {
   };
 
   render() {
-    console.log(this.props.match);
     return (
       <>
         <div className="product-container">
@@ -107,7 +106,7 @@ class Product extends React.Component {
                 ))}
             </ul>
           </div>
-          <BottomNav />
+          <BottomNav selectedNav={0} />
           <Footer />
         </div>
       </>

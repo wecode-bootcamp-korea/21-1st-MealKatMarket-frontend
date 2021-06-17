@@ -31,7 +31,7 @@ class Bargain extends React.Component {
     const { openModal } = this;
     return (
       <div className="bargain-container">
-        <Header />
+        <Header currentMenu={2} />
         <div className="background">
           <div className="banner-wrapper">
             <img src="/images/bargain-banner.png" alt="banner" />
@@ -88,7 +88,7 @@ class Bargain extends React.Component {
             </div>
           </section>
         </div>
-        <BottomNav />
+        <BottomNav selectedNav={0} />
         <Footer />
         {this.state.visible && <Modal closeModal={this.closeModal} />}
       </div>

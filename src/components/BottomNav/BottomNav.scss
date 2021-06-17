@@ -42,6 +42,20 @@
           padding-top: 8px;
         }
       }
+
+      .icon-selected {
+        @include flexSet(column, center, center);
+        height: 65px;
+        width: 125px;
+        text-decoration: none;
+        color: $login_link_font_color;
+        filter: invert(34%) sepia(41%) saturate(3476%) hue-rotate(8deg)
+          brightness(100%) contrast(97%);
+
+        span {
+          padding-top: 8px;
+        }
+      }
     }
   }
 }

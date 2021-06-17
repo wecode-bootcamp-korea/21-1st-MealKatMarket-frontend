@@ -5,6 +5,7 @@
   background-color: $outer_background_color;
 
   .background {
+    margin-top: 100px;
     width: 500px;
     background-color: $all_background_color;
     position: relative;
@@ -72,7 +73,7 @@
 
         button {
           margin-top: 32px;
-          width: 425px;
+          width: 430px;
           height: 50px;
           border: none;
           border-radius: 8px;
@@ -94,6 +95,7 @@
     }
 
     .bargain-next-wrapper {
+      @include flexSet(column, center, center);
       margin: 0px 28px;
       padding: 24px 0px;
 
@@ -174,7 +176,7 @@
           button {
             @include flexSet(row, center, center);
             margin-top: 24px;
-            width: 425px;
+            width: 430px;
             height: 50px;
             border: none;
             border-radius: 8px;

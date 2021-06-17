@@ -51,13 +51,17 @@ class Login extends React.Component {
       <div className="login-container">
         <div className="background">
           <div className="gnb-container">
-            <img
-              className="arrow"
-              src="/icon/LeftArrow.svg"
-              alt="left-arrow-icon"
-              onClick={this.goBack}
-            />
-            <img className="home" src="/icon/Home.svg" alt="home-icon" />
+            <span>
+              <img
+                className="arrow"
+                src="/icon/LeftArrow.svg"
+                alt="left-arrow-icon"
+                onlClick={this.goBack}
+              />
+            </span>
+            <Link to="/main">
+              <img className="home" src="/icon/Home.svg" alt="home-icon" />
+            </Link>
           </div>
           <div className="form-wrapper">
             <p className="email">이메일</p>

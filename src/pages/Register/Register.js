@@ -51,17 +51,21 @@ class Register extends React.Component {
 
   fetchToDatabase = () => {
     const { email, password, username, phoneNumber } = this.state;
-    fetch('http://localhost:5000/register', {
+    fetch(`http://${process.env.KYUCHEOL_IP_ADDRESS}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email,
         password,
-        username,
-        phoneNumber,
+        name: username,
+        phone_number: phoneNumber,
       }),
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => {
+        res.message === 'success'
+          ? this.goHome()
+          : alert('회원가입에 실패했습니다');
+      });
   };
 
   handleInput = e => {
@@ -79,6 +83,10 @@ class Register extends React.Component {
 
   goBack = () => {
     this.props.history.goBack();
+  };
+
+  goHome = () => {
+    this.props.history.push('/');
   };
 
   render() {
@@ -186,9 +194,10 @@ class Register extends React.Component {
             ) : (
               <input
                 type="submit"
-                classNAme="invalid-submit-button"
+                className="invalid-submit-button"
                 value="가입하기"
                 style={{ backgroundColor: '#f3f3f0' }}
+                onClick={this.fetchToDatabase}
               />
             )}
           </form>
