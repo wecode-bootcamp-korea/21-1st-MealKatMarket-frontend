@@ -9,6 +9,7 @@ import Bargain from './pages/Bargain/Bargain';
 import Favorite from './pages/Favorite/Favorite';
 import Detail from './pages/Detail/Detail';
 import Main from './pages/Main/Main';
+import FavoriteMy from './pages/Favorite-my/FavoriteMy';
 import ProductTest from './pages/ProductTest/ProductTest';
 import SearchResult from './pages/SearchResult/SearchResult';
 
@@ -17,6 +18,7 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
+          <Route exact path="/product" component={Product} />
           <Route exact path="/products" component={Product} />
           <Route exact path="/products/search" component={Search} />
           <Route
@@ -30,6 +32,8 @@ class Routes extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/bargain" component={Bargain} />
           <Route exact path="/favorite" component={Favorite} />
+          <Route exact path="/favoritemine" component={FavoriteMy} />
+          <Route exact path="/detail" component={Detail} />
           <Route exact path="/products/detail/:id" component={Detail} />
           <Route exact path="/main" component={Main} />
           {/* <Route exact path="/*" component={Product} /> */}

@@ -2,8 +2,6 @@
 
 .favorite-horizontal-card-container {
   @include flexSet(column, center, center);
-  background-color: $outer_background_color;
-  height: 100vh;
   margin: 16px;
 
   .card-wrapper {
@@ -31,8 +29,23 @@
         color: $favorite_horizontal_card_text_color;
       }
 
+      .discount {
+        padding-right: 7px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $prodcut-card-discount-percentage-color;
+      }
+      .non {
+        padding: 0px;
+        font-size: 16px;
+        font-weight: 700;
+        color: $prodcut-card-discount-percentage-color;
+        display: none;
+      }
+
       .product-name {
         padding-top: 5px;
+        margin-bottom: 10px;
         font-size: 14px;
         line-height: 1.4;
       }

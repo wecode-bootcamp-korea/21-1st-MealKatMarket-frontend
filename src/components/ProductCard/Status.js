@@ -10,12 +10,5 @@ export default class Status extends Component {
 }
 
 const STATUS_MAP = {
-  new: <span className="new"> NEW </span>,
-  sale: <span className="sale"> SALE</span>,
-  both: (
-    <div>
-      <span className="new"> NEW </span>
-      <span className="and-sale"> SALE</span>
-    </div>
-  ),
+  true: <span className="sale"> SALE</span>,
 };

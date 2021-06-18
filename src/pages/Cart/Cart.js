@@ -13,7 +13,7 @@ class Cart extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state.recommendData);
+    // console.log(this.state.recommendData);
   }
 
   componentDidMount() {

@@ -19,8 +19,9 @@ class Card extends React.Component {
 
   render() {
     const {
+      id,
       img_url,
-      status,
+      sale_status,
       name,
       price,
       discount,
@@ -32,8 +33,8 @@ class Card extends React.Component {
     return (
       <li className="productcard-wrapper">
         <div className="image-wrapper">
-          <Status status={status} />
-          <Link to="#" className="detail-link">
+          <Status status={sale_status} />
+          <Link to={`/detail/${id}`} className="detail-link">
             <img src={img_url} alt="donut" />
           </Link>
           <img
@@ -48,7 +49,7 @@ class Card extends React.Component {
           />
         </div>
         <div className="info-wrapper">
-          <Link to="#" className="detail-link">
+          <Link to={`/detail/${id}`} className="detail-link">
             <p className="name">{name}</p>
             <p className={discounted_price === price ? 'non' : 'before-price'}>
               {Math.abs(price).toLocaleString()}원

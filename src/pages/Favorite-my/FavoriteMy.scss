@@ -1,0 +1,121 @@
+@import '../../styles/variables.scss';
+
+.favorite-mine-container {
+  @include flexSet(column, center, center);
+  background-color: $outer_background_color;
+  height: 820px;
+
+  .background {
+    position: relative;
+    width: 500px;
+    height: 100%;
+    background-color: $all_background_color;
+
+    .gnb-container {
+      height: 60px;
+      padding: 20px 18px;
+
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: $favorite_title_color;
+      }
+    }
+
+    .total-wrapper {
+      color: #5b5752;
+      margin-top: 45px;
+      font-size: 12px;
+
+      .number {
+        margin-left: 3px;
+        font-weight: 600;
+      }
+    }
+
+    .wish-login-container {
+      padding: 60px 34px 40px;
+
+      p {
+        font-size: 21px;
+        font-weight: 400;
+        color: $favorite_text_color;
+        line-height: 135%;
+      }
+
+      .login-button-wrapper {
+        @include flexSet(row, center, center);
+
+        button {
+          margin-top: 30px;
+          width: 432px;
+          height: 48px;
+          border: none;
+          border-radius: 8px;
+          background-color: $favorite_login_button_color;
+          color: $favorite_login_text_color;
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+
+      .join-link-wrapper {
+        @include flexSet(row, center, center);
+        margin-top: 24px;
+        font-size: 14px;
+        color: $favorite_join_text_color;
+
+        .join {
+          margin-left: 5px;
+          font-weight: 600;
+          color: $favorite_join_text_color;
+
+          &:hover {
+            color: $favorite_join_hover_color;
+          }
+        }
+      }
+    }
+
+    .blank {
+      width: 500px;
+      height: 12px;
+      background-color: $all_blank_background_color;
+    }
+
+    .empty-container {
+      @include flexSet(column, center, center);
+      width: 500px;
+      height: 228px;
+
+      img {
+        width: 150px;
+        opacity: 0.6;
+      }
+      span {
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        color: $favorite_empty_text_color;
+      }
+    }
+
+    .popular-list-container {
+      padding-left: 18px;
+      height: 490px;
+
+      .wish-popular-wrapper {
+        p {
+          color: $favorite_wish_popular_text_color;
+          font-weight: 600;
+          padding: 28px 0px 13px;
+        }
+      }
+
+      .list-wrapper {
+        @include flexSet(row, flex-start, center);
+        overflow: hidden;
+      }
+    }
+  }
+}

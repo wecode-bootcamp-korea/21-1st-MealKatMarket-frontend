@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.product-container {
+.product-test-container {
   @include flexSet(column, center, center);
   background-color: $outer_background_color;
 
