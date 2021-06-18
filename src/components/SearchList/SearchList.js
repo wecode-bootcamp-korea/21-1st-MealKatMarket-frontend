@@ -18,7 +18,7 @@ class SearchList extends React.Component {
                 >
                   <li key={index} id="search-list-items">
                     <img alt="search" src="/icon/Search.svg" />{' '}
-                    <p>{data.title_name}</p>
+                    <p>{data.name}</p>
                   </li>
                 </Link>
               );
