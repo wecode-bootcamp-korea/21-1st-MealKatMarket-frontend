@@ -14,7 +14,7 @@ class Detail extends React.Component {
       isModalOn: false,
       isClicked: true,
       isVisible: true,
-      isLiked: false,
+      isLiked: '',
     };
   }
 
@@ -29,22 +29,23 @@ class Detail extends React.Component {
     } = this.props;
 
     // Config로 수정 예정
-    fetch(`http://10.58.2.187:8000/products/${id}`)
+    fetch(`http://10.58.5.96:8000/products/${id}`)
       .then(res => res.json())
       .then(res => {
         this.setState({ productInfo: res });
       });
 
-    fetch(`http://10.58.2.187:8000/products/wish/${id}`, {
+    fetch(`http://10.58.5.96:8000/products/wish/${id}`, {
       headers: {
         // Token 써야하지만 임시 테스트용으로 직접 Token 넣어둠
-        Authorization: authToken,
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.uJTe8E89_3-PP14E_a7BtLHfOI6RgAWUNOwhNCo6nng',
       },
     })
       .then(res => res.json())
       .then(res =>
         this.setState({
-          isLiked: res,
+          isLiked: res.wish_status,
         })
       );
   };
@@ -83,7 +84,7 @@ class Detail extends React.Component {
       },
     } = this.props;
 
-    fetch(`http://10.58.2.187:8000/wishes`, {
+    fetch(`http://10.58.5.96:8000/wishes`, {
       method: 'POST',
       headers: {
         Authorization:
@@ -99,6 +100,26 @@ class Detail extends React.Component {
           ? this.setState({ isLiked: false })
           : this.setState({ isLiked: true });
       });
+  };
+
+  handleUnlikeButton = () => {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
+
+    fetch(`http://10.58.5.96:8000/wishes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.uJTe8E89_3-PP14E_a7BtLHfOI6RgAWUNOwhNCo6nng',
+      },
+    }).then(res => {
+      res && this.state.isLiked
+        ? this.setState({ isLiked: false })
+        : this.setState({ isLiked: true });
+    });
   };
 
   goBack = () => {
@@ -169,11 +190,14 @@ class Detail extends React.Component {
               <article className="product-info">
                 <p className="product-title">{message.name}</p>
                 <p className="product-price">
-                  {message.price.toLocaleString()}원
+                  {parseInt(message.price.slice(0, -3)).toLocaleString()}원
                 </p>
                 <div className="product-discount-info">
                   <p className="product-discount-price">
-                    {message.discounted_price.toLocaleString()}원
+                    {parseInt(
+                      message.discounted_price.slice(0, -3)
+                    ).toLocaleString()}
+                    원
                   </p>
                   <p className="product-discount-percent">
                     {message.discount}%
@@ -227,11 +251,15 @@ class Detail extends React.Component {
               {isLiked ? (
                 <img
                   alt="heart"
+                  src="/icon/heart-full.svg"
+                  onClick={this.handleUnlikeButton}
+                />
+              ) : (
+                <img
+                  alt="heart"
                   src="/icon/heart.svg"
                   onClick={this.handleLikeButton}
                 />
-              ) : (
-                <div>dd</div>
               )}
 
               <button className="purchase-button" onClick={this.toggleModal}>

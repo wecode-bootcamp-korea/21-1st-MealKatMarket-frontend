@@ -109,7 +109,8 @@ class BottomModal extends React.Component {
                         data-name={value.name}
                         onClick={this.clickItems}
                       >
-                        {value.name} ({value.price.toLocaleString()}
+                        {value.name} (
+                        {parseInt(value.price.slice(0, -3)).toLocaleString()}
                         원)
                       </li>
                     );
@@ -138,7 +139,8 @@ class BottomModal extends React.Component {
                         data-name={value.name}
                         onClick={this.clickItems}
                       >
-                        {value.name} ({value.price.toLocaleString()}
+                        {value.name} (
+                        {parseInt(value.price.slice(0, -3)).toLocaleString()}
                         원)
                       </li>
                     );
