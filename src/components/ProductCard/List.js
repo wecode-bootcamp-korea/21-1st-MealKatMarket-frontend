@@ -5,11 +5,11 @@ import Card from './Card';
 class List extends React.Component {
   render() {
     const { cardData } = this.props;
+    console.log(this.props.cardData);
     return (
       <div className="product-list">
-        {cardData.map((card, idx) => (
-          <Card key={idx} card={card} />
-        ))}
+        {cardData.result &&
+          cardData.result.map((card, idx) => <Card key={idx} card={card} />)}
       </div>
     );
   }

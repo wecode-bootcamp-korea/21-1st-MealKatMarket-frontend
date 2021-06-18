@@ -27,21 +27,17 @@ class ProductTest extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        // console.log(res);
         let result = res.slice(this.state.preItems, this.state.items);
         this.setState({
           cardData: [...this.state.cardData, ...result],
         });
-        // console.log(result);
       });
     window.addEventListener('scroll', this.infiniteScroll, true);
   }
 
   infiniteScroll = () => {
     let scrollHeight = document.documentElement.scrollHeight;
-
     let scrollTop = document.documentElement.scrollTop;
-
     let clientHeight = document.documentElement.clientHeight;
 
     if (scrollTop + clientHeight >= scrollHeight) {
@@ -52,13 +48,28 @@ class ProductTest extends React.Component {
     }
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.items !== this.state.items) {
+      fetch('http://localhost:3000/data/data.json', {
+        method: 'GET',
+      })
+        .then(res => res.json())
+        .then(res => {
+          let result = res.slice(this.state.preItems, this.state.items);
+          this.setState({
+            cardData: [...this.state.cardData, ...result],
+          });
+        });
+    }
+  }
+
   componentWillUnmount = () => {
     window.removeEventListener('scroll', this.infiniteScroll);
   };
   render() {
     const { cardData } = this.state;
     return (
-      <div className="product-container">
+      <div className="product-test-container">
         <div className="background">
           <ul className="swiper-wrapper">
             <li className="menu-wrapper">

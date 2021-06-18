@@ -3,10 +3,10 @@
 .header-wrapper {
   position: fixed;
   top: 0;
-  z-index: 1;
   background-color: $all_background_color;
   @include flexSet(column, center, center);
   z-index: 2;
+
   .header-container {
     @include flexSet(row, space-between, center);
     width: 500px;
@@ -60,7 +60,7 @@
   }
 
   .menu-link {
-    padding: 12px 2px;
+    padding: 12px 0px;
     text-decoration: none;
     color: $header_font_color;
 

@@ -60,6 +60,7 @@
       background-color: $all-white-color;
       padding: 10px 0px;
       width: 140px;
+
       border: 1px solid #e9e8e2;
 
       li {
@@ -79,12 +80,11 @@
     }
 
     .product-list {
-      padding: 0px 18px;
+      padding: 0px 10px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 16px;
 
-      grid-template-rows: 1fr 1fr;
       li {
         margin-bottom: 24px;
       }

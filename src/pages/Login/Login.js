@@ -12,7 +12,7 @@ class Login extends React.Component {
   }
 
   goToMain = () => {
-    fetch('http://10.58.2.187:8000/users/signin', {
+    fetch('http://10.58.5.96:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.email,
@@ -21,7 +21,6 @@ class Login extends React.Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result);
         if (result.message === 'SUCCESS') {
           this.props.history.push('/product');
           localStorage.setItem('token', result.access_token);
@@ -56,10 +55,10 @@ class Login extends React.Component {
                 className="arrow"
                 src="/icon/LeftArrow.svg"
                 alt="left-arrow-icon"
-                onlClick={this.goBack}
+                onClick={this.goBack}
               />
             </span>
-            <Link to="/main">
+            <Link to="/product">
               <img className="home" src="/icon/Home.svg" alt="home-icon" />
             </Link>
           </div>

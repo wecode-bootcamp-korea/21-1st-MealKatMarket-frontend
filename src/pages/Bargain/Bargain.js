@@ -69,7 +69,7 @@ class Bargain extends React.Component {
                   alt="food"
                 />
                 <p className="open-time">
-                  06월 11일 12:00 <br />
+                  06월 19일 12:00 <br />
                   오픈예정
                 </p>
               </Link>
