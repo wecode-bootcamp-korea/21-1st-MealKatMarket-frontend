@@ -161,7 +161,7 @@
     }
 
     .product-main-information {
-      height: 1000px;
+      height: 100%;
       margin-top: 15px;
       background-color: $all_background_color;
 
@@ -187,7 +187,11 @@
       }
 
       .product-main-image-container {
-        @include flexSet(row, center, center);
+        @include flexSet(column, center, center);
+
+        > img {
+          width: 100%;
+        }
       }
     }
 
@@ -199,6 +203,11 @@
       bottom: 0;
       background-color: #ffffff;
       z-index: 200;
+
+      > img {
+        width: 25px;
+        height: 25px;
+      }
 
       .purchase-button {
         width: 430px;

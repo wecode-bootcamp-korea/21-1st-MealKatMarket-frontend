@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchList from '../../components/SearchList/SearchList';
 import './Search.scss';
 
-const RECOMMEND_KEYWORD = [
-  '곰표떡볶이',
-  'LA갈비',
-  '육즙만두',
-  '감자탕',
-  '모슬포',
-];
+const RECOMMEND_KEYWORD = ['밀캣', 'LA갈비', '아이스', '감자탕', '김치'];
 const POPULAR_KEYWORD = ['만두', '찹쌀떡', '치즈볼', '오징어', '모슬포'];
 class Search extends React.Component {
   constructor() {
@@ -22,7 +16,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/data/testData.json')
+    fetch(`http://10.58.5.96:8000/products/all`)
       .then(res => res.json())
       .then(res =>
         this.setState({
@@ -33,7 +27,7 @@ class Search extends React.Component {
 
   searchByInput = () => {
     const { productData, inputValue } = this.state;
-    const filteredData = productData.filter(data =>
+    const filteredData = productData.result.filter(data =>
       data.name.includes(inputValue)
     );
 
@@ -42,7 +36,7 @@ class Search extends React.Component {
 
   searchByKeyword = keyword => {
     const { productData } = this.state;
-    const filteredData = productData.filter(data =>
+    const filteredData = productData.result.filter(data =>
       data.name.includes(keyword)
     );
 

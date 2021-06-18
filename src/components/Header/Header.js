@@ -16,7 +16,7 @@ class Header extends React.Component {
               </Link>
             </button>
           </div>
-          <Link to="/search">
+          <Link to="/products/search">
             <img src="/icon/Search.svg" alt="search_icon" />
           </Link>
         </div>
