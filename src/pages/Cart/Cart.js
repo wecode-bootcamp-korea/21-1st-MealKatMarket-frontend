@@ -12,10 +12,6 @@ class Cart extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    // console.log(this.state.recommendData);
-  }
-
   componentDidMount() {
     fetch('/data/RecommendData.json')
       .then(res => res.json())

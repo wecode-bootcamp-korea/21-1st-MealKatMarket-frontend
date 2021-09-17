@@ -6,7 +6,6 @@ import './FavoriteMy.scss';
 class FavoriteMy extends React.Component {
   constructor() {
     super();
-
     this.state = {
       likedData: [],
     };
@@ -14,6 +13,7 @@ class FavoriteMy extends React.Component {
 
   componentDidMount = () => {
     const authToken = localStorage.getItem('token');
+
     fetch(`http://10.58.5.96:8000/wishes`, {
       method: 'GET',
       headers: {

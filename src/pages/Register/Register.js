@@ -51,7 +51,7 @@ class Register extends React.Component {
 
   fetchToDatabase = () => {
     const { email, password, username, phoneNumber } = this.state;
-    fetch(`http://${process.env.KYUCHEOL_IP_ADDRESS}/users/signup`, {
+    fetch(`http://10.58.5.96:8000/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -62,9 +62,7 @@ class Register extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        res.message === 'success'
-          ? this.goHome()
-          : alert('회원가입에 실패했습니다');
+        this.goHome();
       });
   };
 

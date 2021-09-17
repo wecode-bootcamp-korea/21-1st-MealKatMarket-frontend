@@ -20,7 +20,7 @@ class Detail extends React.Component {
 
   componentDidMount = () => {
     window.addEventListener('scroll', this.handleScroll);
-    const authToken = localStorage.getItem('Token');
+    const authToken = localStorage.getItem('token');
 
     const {
       match: {
@@ -37,9 +37,7 @@ class Detail extends React.Component {
 
     fetch(`http://10.58.5.96:8000/products/wish/${id}`, {
       headers: {
-        // Token 써야하지만 임시 테스트용으로 직접 Token 넣어둠
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.uJTe8E89_3-PP14E_a7BtLHfOI6RgAWUNOwhNCo6nng',
+        Authorization: authToken,
       },
     })
       .then(res => res.json())
@@ -84,11 +82,12 @@ class Detail extends React.Component {
       },
     } = this.props;
 
+    const authToken = localStorage.getItem('token');
+
     fetch(`http://10.58.5.96:8000/wishes`, {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.uJTe8E89_3-PP14E_a7BtLHfOI6RgAWUNOwhNCo6nng',
+        Authorization: authToken,
       },
       body: JSON.stringify({
         food_id: id,
@@ -109,11 +108,12 @@ class Detail extends React.Component {
       },
     } = this.props;
 
+    const authToken = localStorage.getItem('token');
+
     fetch(`http://10.58.5.96:8000/wishes/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NX0.uJTe8E89_3-PP14E_a7BtLHfOI6RgAWUNOwhNCo6nng',
+        Authorization: authToken,
       },
     }).then(res => {
       res && this.state.isLiked

@@ -34,9 +34,9 @@ class Routes extends React.Component {
           <Route exact path="/favorite" component={Favorite} />
           <Route exact path="/favoritemine" component={FavoriteMy} />
           <Route exact path="/detail" component={Detail} />
-          <Route exact path="/products/detail/:id" component={Detail} />
+          <Route exact path="/detail/:id" component={Detail} />
           <Route exact path="/main" component={Main} />
-          {/* <Route exact path="/*" component={Product} /> */}
+          <Route exact path="/*" component={Product} />
         </Switch>
       </Router>
     );

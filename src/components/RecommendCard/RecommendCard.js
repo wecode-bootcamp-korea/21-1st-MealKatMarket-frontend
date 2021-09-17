@@ -10,12 +10,13 @@ class RecommendCard extends React.Component {
       <div className="RecommendCard">
         <div className="background-wrapper">
           {recommendData.map((data, index) => {
+            console.log(data);
             return (
               index < 4 && (
-                <div className="all-wrapper">
-                  <div className="image-wrapper" key={index}>
+                <div className="all-wrapper" key={data.id}>
+                  <div className="image-wrapper">
                     <Link to="/" className="detail-link">
-                      <img src={data.image} alt="food" />
+                      <img src={data.img_url} alt="food" />
                     </Link>
                   </div>
                   <div className="info-wrapper">
@@ -24,9 +25,16 @@ class RecommendCard extends React.Component {
                         0,
                         7
                       )}...`}</p>
-                      <p className="before-price">
-                        {parseInt(data.price.slice(0, -3)).toLocaleString()}
-                      </p>
+                      <span className="before-price">
+                        {data.price.toLocaleString()}
+                      </span>
+                      <div className="price-line">
+                        <span className="percent">{data.discount}</span>
+                        <span className="won">₩</span>
+                        <span className="now-price">
+                          {data.discounted_price.toLocaleString()}
+                        </span>
+                      </div>
                     </Link>
                   </div>
                 </div>

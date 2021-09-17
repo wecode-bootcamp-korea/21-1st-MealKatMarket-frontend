@@ -4,12 +4,12 @@ import './BottomNav.scss';
 
 class BottomNav extends React.Component {
   logout = () => {
-    localStorage.removeItem('Token');
+    localStorage.removeItem('token');
   };
 
   render() {
     const { selectedNav } = this.props;
-    const tokenForAuth = localStorage.getItem('Token');
+    const tokenForAuth = localStorage.getItem('token');
 
     return (
       <div className="bottom-container">
@@ -107,7 +107,7 @@ const LOGOUT_NAV_ARR = [
   { name: '카트', url: '/cart', src: '/icon/Buy.svg', alt: 'icon', no: 1 },
   {
     name: '관심상품',
-    url: '/favorite',
+    url: '/favoritemine',
     src: '/icon/heart.svg',
     alt: 'icon',
     no: 2,
